@@ -1,3 +1,7 @@
+#xmls
+xmls/
+.xml
+
 # Logs
 logs
 *.log

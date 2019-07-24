@@ -5,27 +5,24 @@
             "encoding": "UTF-8"
         }
     },
-    "FatturaElettronica": {
+    "ns3:FatturaElettronica": {
         "_attributes": {
-            "xmlns": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-            "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
-            "versione": "FPR12"
+            "versione": "FPR12",
+            "xmlns:ns2": "http://www.w3.org/2000/09/xmldsig#",
+            "xmlns:ns3": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
         },
         "FatturaElettronicaHeader": {
-            "_attributes": {
-                "xmlns": ""
-            },
             "DatiTrasmissione": {
                 "IdTrasmittente": {
                     "IdPaese": {
                         "_text": "IT"
                     },
                     "IdCodice": {
-                        "_text": "06166030962"
+                        "_text": "01641790702"
                     }
                 },
                 "ProgressivoInvio": {
-                    "_text": "jnuwz89395"
+                    "_text": "00L4C"
                 },
                 "FormatoTrasmissione": {
                     "_text": "FPR12"
@@ -33,30 +30,25 @@
                 "CodiceDestinatario": {
                     "_text": "BA6ET11"
                 },
-                "PECDestinatario": {
-                    "_text": "burgez@pec.it"
+                "ContattiTrasmittente": {
+                    "Telefono": {
+                        "_text": "0874-60561"
+                    }
                 }
             },
             "CedentePrestatore": {
                 "DatiAnagrafici": {
-                    "_attributes": {
-                        "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                    },
                     "IdFiscaleIVA": {
                         "IdPaese": {
                             "_text": "IT"
                         },
                         "IdCodice": {
-                            "_text": "03200350159"
+                            "_text": "09214970965"
                         }
-                    },
-                    "CodiceFiscale": {
-                        "_text": "03200350159"
                     },
                     "Anagrafica": {
                         "Denominazione": {
-                            "_text": "Carlsberg horeca srl"
+                            "_text": "DELIVEROO ITALY S.r.l."
                         }
                     },
                     "RegimeFiscale": {
@@ -64,18 +56,14 @@
                     }
                 },
                 "Sede": {
-                    "_attributes": {
-                        "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                    },
                     "Indirizzo": {
-                        "_text": "Via Ramazzotti, 12"
+                        "_text": "VIA CARLO BO, 11"
                     },
                     "CAP": {
-                        "_text": "20020"
+                        "_text": "20143"
                     },
                     "Comune": {
-                        "_text": "LAINATE"
+                        "_text": "MILANO"
                     },
                     "Provincia": {
                         "_text": "MI"
@@ -87,10 +75,6 @@
             },
             "CessionarioCommittente": {
                 "DatiAnagrafici": {
-                    "_attributes": {
-                        "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                    },
                     "IdFiscaleIVA": {
                         "IdPaese": {
                             "_text": "IT"
@@ -104,23 +88,19 @@
                     },
                     "Anagrafica": {
                         "Denominazione": {
-                            "_text": "BURGEZ SRL"
+                            "_text": "BURGEZ - S.R.L."
                         }
                     }
                 },
                 "Sede": {
-                    "_attributes": {
-                        "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                    },
                     "Indirizzo": {
-                        "_text": "VIA V. VENETO 28"
+                        "_text": "via conservatorio 30"
                     },
                     "CAP": {
-                        "_text": "20124"
+                        "_text": "20122"
                     },
                     "Comune": {
-                        "_text": "MILANO"
+                        "_text": "Milano"
                     },
                     "Provincia": {
                         "_text": "MI"
@@ -129,37 +109,10 @@
                         "_text": "IT"
                     }
                 }
-            },
-            "TerzoIntermediarioOSoggettoEmittente": {
-                "DatiAnagrafici": {
-                    "IdFiscaleIVA": {
-                        "IdPaese": {
-                            "_text": "IT"
-                        },
-                        "IdCodice": {
-                            "_text": "06166030962"
-                        }
-                    },
-                    "Anagrafica": {
-                        "Denominazione": {
-                            "_text": "INDICOD-ECR SERVIZI SRL"
-                        }
-                    }
-                }
-            },
-            "SoggettoEmittente": {
-                "_text": "TZ"
             }
         },
         "FatturaElettronicaBody": {
-            "_attributes": {
-                "xmlns": ""
-            },
             "DatiGenerali": {
-                "_attributes": {
-                    "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                },
                 "DatiGeneraliDocumento": {
                     "TipoDocumento": {
                         "_text": "TD01"
@@ -168,65 +121,33 @@
                         "_text": "EUR"
                     },
                     "Data": {
-                        "_text": "2019-05-31"
+                        "_text": "2019-04-15"
                     },
                     "Numero": {
-                        "_text": "000000000002367/70"
+                        "_text": "rp1718326116530"
                     },
                     "ImportoTotaleDocumento": {
-                        "_text": "459.23"
+                        "_text": "8268.90"
                     }
-                },
-                "DatiOrdineAcquisto": [
-                    {
-                        "IdDocumento": {
-                            "_text": "Ns.ORD /13717"
-                        }
-                    },
-                    {
-                        "IdDocumento": {
-                            "_text": "Ns.ORD /12409"
-                        }
-                    }
-                ],
-                "DatiDDT": [
-                    {
-                        "NumeroDDT": {
-                            "_text": "000000000003439"
-                        },
-                        "DataDDT": {
-                            "_text": "2019-05-08"
-                        }
-                    },
-                    {
-                        "NumeroDDT": {
-                            "_text": "000000000003822"
-                        },
-                        "DataDDT": {
-                            "_text": "2019-05-20"
-                        }
-                    }
-                ],
-                "DatiTrasporto": {}
+                }
             },
             "DatiBeniServizi": {
-                "_attributes": {
-                    "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                },
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": {
                             "_text": "1"
                         },
                         "Descrizione": {
-                            "_text": "Dest. : 987497 BURGEZ 2 VIA EUSTACHI 8  MILANO"
+                            "_text": "commission"
+                        },
+                        "Quantita": {
+                            "_text": "1.00"
                         },
                         "PrezzoUnitario": {
-                            "_text": "0.0000000"
+                            "_text": "3630.55000000"
                         },
                         "PrezzoTotale": {
-                            "_text": "0.0000000"
+                            "_text": "3630.55"
                         },
                         "AliquotaIVA": {
                             "_text": "22.00"
@@ -237,111 +158,19 @@
                             "_text": "2"
                         },
                         "Descrizione": {
-                            "_text": "Rif. 01-Bol  003439 del 08/05/2019"
-                        },
-                        "PrezzoUnitario": {
-                            "_text": "0.0000000"
-                        },
-                        "PrezzoTotale": {
-                            "_text": "0.0000000"
-                        },
-                        "AliquotaIVA": {
-                            "_text": "22.00"
-                        }
-                    },
-                    {
-                        "NumeroLinea": {
-                            "_text": "3"
-                        },
-                        "CodiceArticolo": {
-                            "CodiceTipo": {
-                                "_text": "AswArtFor"
-                            },
-                            "CodiceValore": {
-                                "_text": "B033A"
-                            }
-                        },
-                        "Descrizione": {
-                            "_text": "CARLSBERG LAT 33 x24"
+                            "_text": "commission"
                         },
                         "Quantita": {
-                            "_text": "12.0000000"
-                        },
-                        "UnitaMisura": {
-                            "_text": "CT"
+                            "_text": "1.00"
                         },
                         "PrezzoUnitario": {
-                            "_text": "15.6841670"
+                            "_text": "3147.24000000"
                         },
                         "PrezzoTotale": {
-                            "_text": "188.2100000"
+                            "_text": "3147.24"
                         },
                         "AliquotaIVA": {
                             "_text": "22.00"
-                        },
-                        "AltriDatiGestionali": {
-                            "TipoDato": {
-                                "_text": "AswTRiga"
-                            },
-                            "RiferimentoTesto": {
-                                "_text": "Prezzo: 24.13  Sconti: 35.00  #DE#"
-                            }
-                        }
-                    },
-                    {
-                        "NumeroLinea": {
-                            "_text": "4"
-                        },
-                        "Descrizione": {
-                            "_text": "Rif. 01-Bol  003822 del 20/05/2019"
-                        },
-                        "PrezzoUnitario": {
-                            "_text": "0.0000000"
-                        },
-                        "PrezzoTotale": {
-                            "_text": "0.0000000"
-                        },
-                        "AliquotaIVA": {
-                            "_text": "22.00"
-                        }
-                    },
-                    {
-                        "NumeroLinea": {
-                            "_text": "5"
-                        },
-                        "CodiceArticolo": {
-                            "CodiceTipo": {
-                                "_text": "AswArtFor"
-                            },
-                            "CodiceValore": {
-                                "_text": "B033A"
-                            }
-                        },
-                        "Descrizione": {
-                            "_text": "CARLSBERG LAT 33 x24"
-                        },
-                        "Quantita": {
-                            "_text": "12.0000000"
-                        },
-                        "UnitaMisura": {
-                            "_text": "CT"
-                        },
-                        "PrezzoUnitario": {
-                            "_text": "15.6841670"
-                        },
-                        "PrezzoTotale": {
-                            "_text": "188.2100000"
-                        },
-                        "AliquotaIVA": {
-                            "_text": "22.00"
-                        },
-                        "AltriDatiGestionali": {
-                            "TipoDato": {
-                                "_text": "AswTRiga"
-                            },
-                            "RiferimentoTesto": {
-                                "_text": "Prezzo: 24.13  Sconti: 35.00  #DE#"
-                            }
                         }
                     }
                 ],
@@ -350,10 +179,10 @@
                         "_text": "22.00"
                     },
                     "ImponibileImporto": {
-                        "_text": "376.42"
+                        "_text": "6777.79"
                     },
                     "Imposta": {
-                        "_text": "82.81"
+                        "_text": "1491.11"
                     },
                     "EsigibilitaIVA": {
                         "_text": "I"
@@ -361,10 +190,6 @@
                 }
             },
             "DatiPagamento": {
-                "_attributes": {
-                    "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                },
                 "CondizioniPagamento": {
                     "_text": "TP02"
                 },
@@ -372,168 +197,17 @@
                     "ModalitaPagamento": {
                         "_text": "MP05"
                     },
+                    "DataRiferimentoTerminiPagamento": {
+                        "_text": "2019-04-15"
+                    },
+                    "GiorniTerminiPagamento": {
+                        "_text": "0"
+                    },
                     "DataScadenzaPagamento": {
-                        "_text": "2019-06-30"
+                        "_text": "2019-04-15"
                     },
                     "ImportoPagamento": {
-                        "_text": "459.23"
-                    },
-                    "ScontoPagamentoAnticipato": {
-                        "_text": "0.00"
-                    },
-                    "PenalitaPagamentiRitardati": {
-                        "_text": "0.00"
-                    },
-                    "CodicePagamento": {
-                        "_text": "BONIFICO BANCARIO 30 GG DF"
-                    }
-                }
-            },
-            "Allegati": {
-                "_attributes": {
-                    "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
-                    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
-                },
-                "NomeAttachment": {
-                    "_text": "550263.PDF"
-                },
-                "FormatoAttachment": {
-                    "_text": "PDF"
-                },
-                "DescrizioneAttachment": {
-                    "_text": "Fattura n. 000002367 del 31/05/2019"
-                },
-                "Attachment": {
-                    "_text": "JVBERi0xLjQNCiXi48/TDQolZ2VuZXJhdGVkIGJ5IFhGUlgsIChjKSAyMDA1IHd3dy5lcWV1cy5jb20NCjUgMCBvYmoNCjw8DQovVHlwZSAvUGFnZQ0KL1BhcmVudCA0IDAgUg0KL01lZGlhQm94IFswIDAgNTk4IDg0Ml0NCi9Bbm5vdHMgMTIgMCBSDQovUmVzb3VyY2VzIDw8DQovRm9udCA8PA0KL0YxIDIgMCBSDQovRjIgNiAwIFINCi9GMyA4IDAgUg0KL0Y0IDEwIDAgUg0KPj4NCj4+DQogL0NvbnRlbnRzIDEzIDAgUg0KPj4NCmVuZG9iag0KMTMgMCBvYmoNCiAgPDwNCi9MZW5ndGggMzUzMA0KL0ZpbHRlciBbL0ZsYXRlRGVjb2RlXQ0KPj4NCnN0cmVhbQ0KeJztXNty28gR/ZV52drdKi08F1z9Rl2ssEqWbInWQ2pfIBKikQIJBYSULX9VPmkf8xnpATAzPQOCBYJOspXEVXLRR0DPmZ7unjMXmpC/EkI9qn/ur0kQxl4cUkoCTr0wgA8bgzGft1gBj0ccPvyNPBBCPsNP3xRnnnAsKWjY0PmCvPvASOJR+EMWz41Viv6q1oQR+Ax/h8zj0kgYCS+hMTy+IT+df7m/vvozebi/+XnxF3K1mGbRDzxfWXycz8ijRx6vbq8Wd4THp9gVzGNBZ5dTxn3ycX4zu70jv/70cf7rz9g0H2eah14kTQci9gK/M/1htlh8uZ+BRyn7JaLvKOUijAhZZQUhgr2jwTtoPbF7Eo9qriMVxNzzZbuyOZrQiAYhTcJogknlnIgKj1NlksVA+hSCge9FyprwyS/k/O52/mF+cUfOZ7cXs/v5HRGUXF+Tyw9HNHMkG8F9L6Dd8CTaX0wwIHQ9n33+Mr+FoPp4d391e3dEYKnHxEinxK2Lg0QYp3zy5o+zrk1IXyd74Z2gTdaICYisNn81Bm5usD4iKHOQJYHREJ6fYBACMQgTBzyEKBZL9GIIBSVhjrWQBi24B1E0NALWNGENFqj3GjyEKBrLfW5DNe6rrHKfjxs6Fc9QRXV2XJSrfJnheBlpLRZ7rF1mu2WVf8vLbQYVIidP2TafYJsH3GOha/zzbxdTbEW8K2vY1pfNBFOCgfuT2KX1mm7rvP59isGIej7Mh7bBT1X27Vs5wZwvEi/s8XtYlsBvgrkAYjH0fcfcfPNSVvUUekEQ7QtAb+4dKB165uceh8KDZv4AZsC2cLiAAJUAQ26AJtGpxywQJ7oGDyGKAi4bGrSsMe6UDYQoGgppykbHV2EF6rjChgHEq4cNVAxGolG5QxMjCYQM1CY+07U3JRHjZM/UcZ5ulylZ/Zi+vJTrdT4lrnRdCwMzMV6U25UqRDkByukm204KW56oSiciI1RmazCX2fPsOJ/yaI9P2RRLfid3LEuPafFap+/J1Ws1pbfgw361vHiboFSFjMHvK6qNyRGqel814e3qA+sQBWkZ4gIidgCZZ2HocZ/aIoSDkLXBQwgSIRrEIsSARiT0EEXDEiEdX0uDcAcbBrAAcd01WE2OHL0j1i4j1etIEc0iVdBGLDpGZoyxietaq6vIh3y3TIvsYEiyZmKIIxSSDRRSoUPSBmCIbaAJyUAJUoFCkjngAURTWKIXg9BvpRi2BqvDFtyDKBoaaUOy7aTCCtRx/eYgoCgs97irH5KHFiDYy0aEa0e4CNLzaMlglL/oKwkNHkCwow2IHG1A5Ys9iKJhOVoRtjyte2+GbRjBzu65bZy39UBSrdk0FHk8sQZbAUmnixQg2498z+cYtINQvXoIoUYb9UDLmhBuSGtE01CItKb4KgyHtH5zEMC8XOzIkEZeNph2RA9JuOPTJghd0A7CDjyI0D3iGDkaCWvhhrRB+D5Hu6AV0mbYhhErCFzwtDW13nFivplPutp/UeR9jThqpoSFUrPVE4P+DtVEeZFWxe4pg8e+llUGonlXFSfYjhIsofKU3KebFNaddZ2fEcZPsRxb0zvldIKxpFu1W8ZuZvPb2eKKgFwgZL44hSMoJ61JP80fZ+8JFcBVBJQFySmGA46G7MP7778heKTkibttQz8WXqhXXa0K50Rq56svD4vZxZ/mJCadDpuwWQrD1DaT+F6sEuEy29UeeU+SOPKTYzZ0j3yMj+TY6U8/glky9luO9/mzJ/e2z0uoKxAAvkiazW0aT9jb/t95TIt6SCSagC/9IDHxxf0zJiidEEeQhF4cxY49xs8mWfNBD3FBHWu/iADM/TDBXsDDdsPOZhfHZ5z9xzNdnd9Y3M6pELNT8hkbu5jd3zycX4H+uJktiBDkN+5POViB/IuEO8YXiykDEsAsFroDwo857jmWfABrbtZr0fLDsfUI5NRgPYo5b+oRp/+vR0fVIxF833qE7Z1ej7C171GPLHZ/sHqEuZ1cj7Cx716PLOOn1SMr/P4t9cgO+EMt6h9sR3SjJXf9lICbF+SlynZyGUNW5fK12UMn23JLduWuzuvXfAcLnSIlz2ldv1YpyYqsrqtym8P6ZPk1I4852aXV70QuWF7yOq1TUlfpJgd7D5dzsiw3mWzhLd+B3VVaFOlk3owa3tuy2qR1/gbE2g04b6pZkcTG7M2P+eYFOp7KM4WnsijKM1K+Sde8vdbpGfkHSXe7soDfp9DvbLvLm9J9mS2rDPr38eoDYRG5nn+5vr2Dgs588utPs/uFR0J30/MIgnFoCH4swYd5/bvktyy3u2y9Td+T5yrdLsG9oMbzbTm5oQgp+5nsJ/R8XeSkfHoq8vXXvGn0NScwij+mVZ0vy6IkIT+To7xJCTtrnLHqnFFk63VGuE/W2Xab5qX0Bzy79eSDwP0tAxN12XyeTDlEsbyBVfkzxKU8FIIlbhNshsUmrb4hDjyaHjEBCsRLSAp5GgOR8JySKn/OqrxNosZLy2VZrUqSb0m222VV5pH5VsZQtv2WyrRaNa/Lt3NIwe0qI5A/GcQg/HuV1Vm1ybdpXU7nKlB0X8hkXKWQj8AAPAStvlTlMltlkMCpHMUXCOm0goTPZELn8reQ45ARzUkbjH6VrWDMqjx7t8qe2k/wZCFTMZM9zmT2g43m8cmkOYp4GVtZtcwh7KVtSe1FBt90lzAU5ovXugbfg8n2/DCXqQ492JbdgME4QL7DIDVhn0Jp3EkWD+A0MtvA6OS75rdvTcm4SeVwZd0xx3SKFIX1p6wieUGgyDX5tspkSspogboNIwgBLl0DjW/KqomkKt++5VChZCrWUJHlO23GekGXqq3ivPRu1juPJKSs6/IJ+ir3cmR2cMFINpU8T1B6kBfJXobZSm48kaYT+TI3lAjIX0QKXHzTpCyLyXP29FTJysGSJCHbv8u7SZNZRbE16+1SeRjd8yYUJciFTfPLqnMd4T+Q7DciyYaKq1DOc+obOI+h4nZKbZNnf/trmywnN6qufdR1TQ7c4ap2ovKWiSOVMmPcHB3H/Cw+RoqaqwcRaLLQsSai8MyfcpfPZ9/XnNy059DXGF05mNxVX7Ta1uL2r9CMf+THtIIWCRQYd6RgsX3GhX06G46KSp+3zhXdaqS7HFJX+dMrZODF3e1s3sm20oi5gyppUIknrRL/rx3HfedQ1AtZE7vdkdDGQEJ0Z04uAGNhA0sCn2Mv8jFYACiv3lrgIYSZEy0NQm6FoWMMymCD9QHFQQHySLXjqqDC9FlBQ/9WbS/3uGnUIZ8kyBzvGgw7wEEi6iCyIzBzcNfBQmabBR5CkIM16Js7axoDgdZgfUBxUIAcKkVWYQXquMKGAd/co+u767TDPRbTrjBz374Auc2fclCa5tbzURfKQupxuUdgmf1hgiVBu8d6BGGNOsWe7++xtyhrWEGTXPf7FMtJZCZMZHgaXz/ojl/38dX7FcOXb3xfFSKWtGJqgzAV/3sQGEEaOPkVBKED4mNvDR5CFAt8iK5ByxoNPd+6YWoQTUMhYM0QVmCBe6/AQwji1gdHVTP9WtKdRGJng9yjvk1BIYZ7h1jOVqDtng48gCgS2NcKw7agBtjXFTSgKCgA+1lh2M0KGwYQpx52nIvDyBNOPMfy8rrTfGRFswKwfxXmuCRKHJfYgGre+oZFh9mXQdyL0gpQ7SsAO1dh2LkKGwYQpx42eLFxnGT14bGE26sB6pwQHFvScKG8SF/blV1K2n2VKTvTiiSoVH1L8VSScuOc9kl2+0ATjsSk+k/kgYYAaSb8IfHPx92Q1jzldWHe8VzcLWY3V+RyRj7Nrmf3VyOmB595zClYIDUCq15pQEepj64MhjZmX69yrwe6gGoeZ5PCsCWlP/uAah/pWs0TCVvdGYUNA4hTDxvMplErtgDmckG5/BZfq77koF3tlsXrriSzqvZYYIf/cVaTaJzVCWshM3f51POjwJ7hIP8cOaGRoLtgqJFmpFn7rRANWjOcAg8iHQtLTijQFifciRyEKBoKkSOuCSvQkhMKPIQgbn3wxO+56f0UrAoPf89IboS7StBgZiXUQwLeV4I+fI4pBhv3RM666hBiqS0XtKwZpdZDNA2kBA1hpARNvxR4CEHc+uAomaJfM0oQNdgptT2I4W6UIOqlUYLIGVpXDiKW6nIwbMvINRdQFJAS1FyREtQ9UtgwgDj1sONcbJQgbi1KnOYjK5qREsSdi9xYNppyCLBUl4NhS0auuYBqHylBzRMpQd0ZhQ0DiFMPO865qNAjLHarhUag0vUKvfzWpg1aAWymjQMILqYuaNceXYh7iKaBCr0hjAo9qoIdeAhB3Prgabpbb+pjSbtvp/i4LQosasfvJZjNJxMTCIvdvTqNwASbuDEhBOvHhNmHMxF2AMF+d0F750+PWR9h/ZgwhFFMoD1IbjZXhxDErQ+O+/oD7SWggWJn21kDcT/7GER44nrabCnjcRtE7N5ErqfRljV3Np4NomkgT2u+yNFmL53bm819APHqYQOJ549dpXXbhPKLp1F32f3hJdtlJF0us91OHvzjFBxplzO+x/B9nr3kRbku9+0UjrQsgu7YlAlYyfCeZfmfFdQy1/MJxv047AQnNi4PmbL1Oh8hOs360kxa3SKwD+i5z6wvzRxp1pdmItUr1SHAWss5GLZkFoEuoNrH5yaKJ1pf6s4obBhAnHpYP3j/CXArYYENCmVuZHN0cmVhbQ0KZW5kb2JqDQoxMiAwIG9iag0KWw0KXQ0KZW5kb2JqDQo0IDAgb2JqDQo8PA0KIC9UeXBlIC9QYWdlcw0KIC9LaWRzIFsNCjUgMCBSIA0KXQ0KIC9Db3VudCAxDQo+Pg0KZW5kb2JqDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9QYWdlcyA0IDAgUg0KPj4NCmVuZG9iag0KMiAwIG9iag0KPDwNCi9UeXBlIC9Gb250DQovU3VidHlwZSAvVHJ1ZVR5cGUNCi9FbmNvZGluZyA8PC9CYXNlRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvRGlmZmVyZW5jZXMgWzEyOCAvRXVybyAxNDEgL3UwMDhEXSAvVHlwZSAvRW5jb2Rpbmc+Pg0KL0ZpcnN0Q2hhciAzMA0vTGFzdENoYXIgMjU1DS9XaWR0aHMgWzc1MCA3NTAgMjc3IDI3NyAzNTUgNTU2IDU1NiA4ODkgNjY3IDE5MCAzMzMgMzMzIDM4OSA1ODMgMjc3IDMzMyAyNzcgMjc3IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiAyNzcgMjc3IDU4MyA1ODMgNTgzIDU1NiAxMDE1IDY2NyA2NjcgNzIyIDcyMiA2NjcgNjEwIDc3OCA3MjIgMjc3IDUwMCA2NjcgNTU2IDgzMiA3MjIgNzc4IDY2NyA3NzggNzIyIDY2NyA2MTAgNzIyIDY2NyA5NDMgNjY3IDY2NyA2MTAgMjc3IDI3NyAyNzcgNDY5IDU1NiAzMzMgNTU2IDU1NiA1MDAgNTU2IDU1NiAyNzcgNTU2IDU1NiAyMjIgMjIyIDUwMCAyMjIgODMyIDU1NiA1NTYgNTU2IDU1NiAzMzMgNTAwIDI3NyA1NTYgNTAwIDcyMiA1MDAgNTAwIDUwMCAzMzQgMjU5IDMzNCA1ODMgNzUwIDU1NiA3NTAgMjIyIDU1NiAzMzMgMTAwMCA1NTYgNTU2IDMzMyAxMDAwIDY2NyAzMzMgMTAwMCA3NTAgNjEwIDc1MCA3NTAgMjIyIDIyMiAzMzMgMzMzIDM1MCA1NTYgMTAwMCAzMzMgMTAwMCA1MDAgMzMzIDk0MyA3NTAgNTAwIDY2NyAyNzcgMzMzIDU1NiA1NTYgNTU2IDU1NiAyNTkgNTU2IDMzMyA3MzYgMzcwIDU1NiA1ODMgMzMzIDczNiA1NTIgNDAwIDU0OSAzMzMgMzMzIDMzMyA1NzYgNTM3IDMzMyAzMzMgMzMzIDM2NSA1NTYgODM0IDgzNCA4MzQgNjEwIDY2NyA2NjcgNjY3IDY2NyA2NjcgNjY3IDEwMDAgNzIyIDY2NyA2NjcgNjY3IDY2NyAyNzcgMjc3IDI3NyAyNzcgNzIyIDcyMiA3NzggNzc4IDc3OCA3NzggNzc4IDU4MyA3NzggNzIyIDcyMiA3MjIgNzIyIDY2NyA2NjcgNjEwIDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDg4OSA1MDAgNTU2IDU1NiA1NTYgNTU2IDI3NyAyNzcgMjc3IDI3NyA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTQ5IDYxMCA1NTYgNTU2IDU1NiA1NTYgNTAwIDU1NiA1MDBdDQovQmFzZUZvbnQgL0FyaWFsDQovRm9udERlc2NyaXB0b3IgMyAwIFINCiA+Pg0KZW5kb2JqDQozIDAgb2JqDQo8PA0KL1R5cGUgL0ZvbnREZXNjcmlwdG9yDQovRm9udE5hbWUgL0FyaWFsDQovRmxhZ3MgMzINCi9Gb250QkJveCBbLTEwMCAtMzAwIDIwMDAgMTAwMF0NCi9TdGVtViAxMDANCi9JdGFsaWNBbmdsZSAwDQovQ2FwSGVpZ2h0IDEwMDANCi9Bc2NlbnQgMTAwMA0KL0Rlc2NlbnQgLTMwMA0KPj4NCmVuZG9iag0KNiAwIG9iag0KPDwNCi9UeXBlIC9Gb250DQovU3VidHlwZSAvVHJ1ZVR5cGUNCi9FbmNvZGluZyA8PC9CYXNlRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvRGlmZmVyZW5jZXMgWzEyOCAvRXVybyAxNDEgL3UwMDhEXSAvVHlwZSAvRW5jb2Rpbmc+Pg0KL0ZpcnN0Q2hhciAzMA0vTGFzdENoYXIgMjU1DS9XaWR0aHMgWzc1MCA3NTAgMjc3IDMzMyA0NzQgNTU2IDU1NiA4ODkgNzIyIDIzOCAzMzMgMzMzIDM4OSA1ODMgMjc3IDMzMyAyNzcgMjc3IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiAzMzMgMzMzIDU4MyA1ODMgNTgzIDYxMCA5NzUgNzIyIDcyMiA3MjIgNzIyIDY2NyA2MTAgNzc4IDcyMiAyNzcgNTU2IDcyMiA2MTAgODMyIDcyMiA3NzggNjY3IDc3OCA3MjIgNjY3IDYxMCA3MjIgNjY3IDk0MyA2NjcgNjY3IDYxMCAzMzMgMjc3IDMzMyA1ODMgNTU2IDMzMyA1NTYgNjEwIDU1NiA2MTAgNTU2IDMzMyA2MTAgNjEwIDI3NyAyNzcgNTU2IDI3NyA4ODkgNjEwIDYxMCA2MTAgNjEwIDM4OSA1NTYgMzMzIDYxMCA1NTYgNzc4IDU1NiA1NTYgNTAwIDM4OSAyODAgMzg5IDU4MyA3NTAgNTU2IDc1MCAyNzcgNTU2IDUwMCAxMDAwIDU1NiA1NTYgMzMzIDEwMDAgNjY3IDMzMyAxMDAwIDc1MCA2MTAgNzUwIDc1MCAyNzcgMjc3IDUwMCA1MDAgMzUwIDU1NiAxMDAwIDMzMyAxMDAwIDU1NiAzMzMgOTQzIDc1MCA1MDAgNjY3IDI3NyAzMzMgNTU2IDU1NiA1NTYgNTU2IDI4MCA1NTYgMzMzIDczNiAzNzAgNTU2IDU4MyAzMzMgNzM2IDU1MiA0MDAgNTQ5IDMzMyAzMzMgMzMzIDU3NiA1NTYgMzMzIDMzMyAzMzMgMzY1IDU1NiA4MzQgODM0IDgzNCA2MTAgNzIyIDcyMiA3MjIgNzIyIDcyMiA3MjIgMTAwMCA3MjIgNjY3IDY2NyA2NjcgNjY3IDI3NyAyNzcgMjc3IDI3NyA3MjIgNzIyIDc3OCA3NzggNzc4IDc3OCA3NzggNTgzIDc3OCA3MjIgNzIyIDcyMiA3MjIgNjY3IDY2NyA2MTAgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgODg5IDU1NiA1NTYgNTU2IDU1NiA1NTYgMjc3IDI3NyAyNzcgMjc3IDYxMCA2MTAgNjEwIDYxMCA2MTAgNjEwIDYxMCA1NDkgNjEwIDYxMCA2MTAgNjEwIDYxMCA1NTYgNjEwIDU1Nl0NCi9CYXNlRm9udCAvQXJpYWwsQm9sZA0KL0ZvbnREZXNjcmlwdG9yIDcgMCBSDQogPj4NCmVuZG9iag0KNyAwIG9iag0KPDwNCi9UeXBlIC9Gb250RGVzY3JpcHRvcg0KL0ZvbnROYW1lIC9BcmlhbCxCb2xkDQovRmxhZ3MgMzINCi9Gb250QkJveCBbLTEwMCAtMzAwIDIwMDAgMTAwMF0NCi9TdGVtViAxMDANCi9JdGFsaWNBbmdsZSAwDQovQ2FwSGVpZ2h0IDEwMDANCi9Bc2NlbnQgMTAwMA0KL0Rlc2NlbnQgLTMwMA0KPj4NCmVuZG9iag0KOCAwIG9iag0KPDwNCi9UeXBlIC9Gb250DQovU3VidHlwZSAvVHJ1ZVR5cGUNCi9FbmNvZGluZyA8PC9CYXNlRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvRGlmZmVyZW5jZXMgWzEyOCAvRXVybyAxNDEgL3UwMDhEXSAvVHlwZSAvRW5jb2Rpbmc+Pg0KL0ZpcnN0Q2hhciAzMA0vTGFzdENoYXIgMjU1DS9XaWR0aHMgWzc1MCA3NTAgMjc3IDI3NyAzNTUgNTU2IDU1NiA4ODkgNjY3IDE5MCAzMzMgMzMzIDM4OSA1ODMgMjc3IDMzMyAyNzcgMjc3IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiAyNzcgMjc3IDU4MyA1ODMgNTgzIDU1NiAxMDE1IDY2NyA2NjcgNzIyIDcyMiA2NjcgNjEwIDc3OCA3MjIgMjc3IDUwMCA2NjcgNTU2IDgzMiA3MjIgNzc4IDY2NyA3NzggNzIyIDY2NyA2MTAgNzIyIDY2NyA5NDMgNjY3IDY2NyA2MTAgMjc3IDI3NyAyNzcgNDY5IDU1NiAzMzMgNTU2IDU1NiA1MDAgNTU2IDU1NiAyNzcgNTU2IDU1NiAyMjIgMjIyIDUwMCAyMjIgODMyIDU1NiA1NTYgNTU2IDU1NiAzMzMgNTAwIDI3NyA1NTYgNTAwIDcyMiA1MDAgNTAwIDUwMCAzMzQgMjU5IDMzNCA1ODMgNzUwIDU1NiA3NTAgMjIyIDU1NiAzMzMgMTAwMCA1NTYgNTU2IDMzMyAxMDAwIDY2NyAzMzMgMTAwMCA3NTAgNjEwIDc1MCA3NTAgMjIyIDIyMiAzMzMgMzMzIDM1MCA1NTYgMTAwMCAzMzMgMTAwMCA1MDAgMzMzIDk0MyA3NTAgNTAwIDY2NyAyNzcgMzMzIDU1NiA1NTYgNTU2IDU1NiAyNTkgNTU2IDMzMyA3MzYgMzcwIDU1NiA1ODMgMzMzIDczNiA1NTIgNDAwIDU0OSAzMzMgMzMzIDMzMyA1NzYgNTM3IDMzMyAzMzMgMzMzIDM2NSA1NTYgODM0IDgzNCA4MzQgNjEwIDY2NyA2NjcgNjY3IDY2NyA2NjcgNjY3IDEwMDAgNzIyIDY2NyA2NjcgNjY3IDY2NyAyNzcgMjc3IDI3NyAyNzcgNzIyIDcyMiA3NzggNzc4IDc3OCA3NzggNzc4IDU4MyA3NzggNzIyIDcyMiA3MjIgNzIyIDY2NyA2NjcgNjEwIDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDg4OSA1MDAgNTU2IDU1NiA1NTYgNTU2IDI3NyAyNzcgMjc3IDI3NyA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTQ5IDYxMCA1NTYgNTU2IDU1NiA1NTYgNTAwIDU1NiA1MDBdDQovQmFzZUZvbnQgL0FyaWFsLEl0YWxpYw0KL0ZvbnREZXNjcmlwdG9yIDkgMCBSDQogPj4NCmVuZG9iag0KOSAwIG9iag0KPDwNCi9UeXBlIC9Gb250RGVzY3JpcHRvcg0KL0ZvbnROYW1lIC9BcmlhbCxJdGFsaWMNCi9GbGFncyAzMg0KL0ZvbnRCQm94IFstMTAwIC0zMDAgMjAwMCAxMDAwXQ0KL1N0ZW1WIDEwMA0KL0l0YWxpY0FuZ2xlIDANCi9DYXBIZWlnaHQgMTAwMA0KL0FzY2VudCAxMDAwDQovRGVzY2VudCAtMzAwDQo+Pg0KZW5kb2JqDQoxMCAwIG9iag0KPDwNCi9UeXBlIC9Gb250DQovU3VidHlwZSAvVHJ1ZVR5cGUNCi9FbmNvZGluZyA8PC9CYXNlRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvRGlmZmVyZW5jZXMgWzEyOCAvRXVybyAxNDEgL3UwMDhEXSAvVHlwZSAvRW5jb2Rpbmc+Pg0KL0ZpcnN0Q2hhciAzMA0vTGFzdENoYXIgMjU1DS9XaWR0aHMgWzc1MCA3NTAgMjc3IDMzMyA0NzQgNTU2IDU1NiA4ODkgNzIyIDIzOCAzMzMgMzMzIDM4OSA1ODMgMjc3IDMzMyAyNzcgMjc3IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDU1NiAzMzMgMzMzIDU4MyA1ODMgNTgzIDYxMCA5NzUgNzIyIDcyMiA3MjIgNzIyIDY2NyA2MTAgNzc4IDcyMiAyNzcgNTU2IDcyMiA2MTAgODMyIDcyMiA3NzggNjY3IDc3OCA3MjIgNjY3IDYxMCA3MjIgNjY3IDk0MyA2NjcgNjY3IDYxMCAzMzMgMjc3IDMzMyA1ODMgNTU2IDMzMyA1NTYgNjEwIDU1NiA2MTAgNTU2IDMzMyA2MTAgNjEwIDI3NyAyNzcgNTU2IDI3NyA4ODkgNjEwIDYxMCA2MTAgNjEwIDM4OSA1NTYgMzMzIDYxMCA1NTYgNzc4IDU1NiA1NTYgNTAwIDM4OSAyODAgMzg5IDU4MyA3NTAgNTU2IDc1MCAyNzcgNTU2IDUwMCAxMDAwIDU1NiA1NTYgMzMzIDEwMDAgNjY3IDMzMyAxMDAwIDc1MCA2MTAgNzUwIDc1MCAyNzcgMjc3IDUwMCA1MDAgMzUwIDU1NiAxMDAwIDMzMyAxMDAwIDU1NiAzMzMgOTQzIDc1MCA1MDAgNjY3IDI3NyAzMzMgNTU2IDU1NiA1NTYgNTU2IDI4MCA1NTYgMzMzIDczNiAzNzAgNTU2IDU4MyAzMzMgNzM2IDU1MiA0MDAgNTQ5IDMzMyAzMzMgMzMzIDU3NiA1NTYgMzMzIDMzMyAzMzMgMzY1IDU1NiA4MzQgODM0IDgzNCA2MTAgNzIyIDcyMiA3MjIgNzIyIDcyMiA3MjIgMTAwMCA3MjIgNjY3IDY2NyA2NjcgNjY3IDI3NyAyNzcgMjc3IDI3NyA3MjIgNzIyIDc3OCA3NzggNzc4IDc3OCA3NzggNTgzIDc3OCA3MjIgNzIyIDcyMiA3MjIgNjY3IDY2NyA2MTAgNTU2IDU1NiA1NTYgNTU2IDU1NiA1NTYgODg5IDU1NiA1NTYgNTU2IDU1NiA1NTYgMjc3IDI3NyAyNzcgMjc3IDYxMCA2MTAgNjEwIDYxMCA2MTAgNjEwIDYxMCA1NDkgNjEwIDYxMCA2MTAgNjEwIDYxMCA1NTYgNjEwIDU1Nl0NCi9CYXNlRm9udCAvQXJpYWwsQm9sZCxJdGFsaWMNCi9Gb250RGVzY3JpcHRvciAxMSAwIFINCiA+Pg0KZW5kb2JqDQoxMSAwIG9iag0KPDwNCi9UeXBlIC9Gb250RGVzY3JpcHRvcg0KL0ZvbnROYW1lIC9BcmlhbCxCb2xkLEl0YWxpYw0KL0ZsYWdzIDMyDQovRm9udEJCb3ggWy0xMDAgLTMwMCAyMDAwIDEwMDBdDQovU3RlbVYgMTAwDQovSXRhbGljQW5nbGUgMA0KL0NhcEhlaWdodCAxMDAwDQovQXNjZW50IDEwMDANCi9EZXNjZW50IC0zMDANCj4+DQplbmRvYmoNCjE0IDAgb2JqDQo8PCANCi9BdXRob3IgKCkNCi9UaXRsZSAoKQ0KL1N1YmplY3QgKCkNCi9LZXl3b3JkcyAoKQ0KL0NyZWF0b3IgKCkNCi9Qcm9kdWNlciAoKQ0KL0NyZWF0aW9uRGF0ZSAoRDoyMDE5MDYwMzEyMTI0NykNCj4+IGVuZG9iag0KeHJlZg0KMCAxNQ0KMDAwMDAwMDAwMCA2NTUzNSBmDQowMDAwMDAzOTY1IDAwMDAwIG4NCjAwMDAwMDQwMjAgMDAwMDAgbg0KMDAwMDAwNTE2OCAwMDAwMCBuDQowMDAwMDAzODkzIDAwMDAwIG4NCjAwMDAwMDAwNjEgMDAwMDAgbg0KMDAwMDAwNTM1MiAwMDAwMCBuDQowMDAwMDA2NTA0IDAwMDAwIG4NCjAwMDAwMDY2OTMgMDAwMDAgbg0KMDAwMDAwNzg0OCAwMDAwMCBuDQowMDAwMDA4MDM5IDAwMDAwIG4NCjAwMDAwMDkyMDAgMDAwMDAgbg0KMDAwMDAwMzg2OSAwMDAwMCBuDQowMDAwMDAwMjUyIDAwMDAwIG4NCjAwMDAwMDkzOTcgMDAwMDAgbg0KdHJhaWxlcg0KPDwNCi9TaXplIDE1DQovUm9vdCAxIDAgUg0KL0luZm8gMTQgMCBSDQo+Pg0Kc3RhcnR4cmVmDQo5NTM0DQolJUVPRg0K"
-                }
-            }
-        },
-        "ds:Signature": {
-            "_attributes": {
-                "Id": "id-8a089d274fa5cb483630475b09f0af29",
-                "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#"
-            },
-            "ds:SignedInfo": {
-                "ds:CanonicalizationMethod": {
-                    "_attributes": {
-                        "Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"
-                    }
-                },
-                "ds:SignatureMethod": {
-                    "_attributes": {
-                        "Algorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
-                    }
-                },
-                "ds:Reference": [
-                    {
-                        "_attributes": {
-                            "Id": "r-id-1",
-                            "URI": ""
-                        },
-                        "ds:Transforms": {
-                            "ds:Transform": [
-                                {
-                                    "_attributes": {
-                                        "Algorithm": "http://www.w3.org/TR/1999/REC-xpath-19991116"
-                                    },
-                                    "ds:XPath": {
-                                        "_text": "not(ancestor-or-self::ds:Signature)"
-                                    }
-                                },
-                                {
-                                    "_attributes": {
-                                        "Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"
-                                    }
-                                }
-                            ]
-                        },
-                        "ds:DigestMethod": {
-                            "_attributes": {
-                                "Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"
-                            }
-                        },
-                        "ds:DigestValue": {
-                            "_text": "RPsTmKCOo0IDdKVtaIGZpp6ga1X65XRZFBraAblMdYo="
-                        }
-                    },
-                    {
-                        "_attributes": {
-                            "Type": "http://uri.etsi.org/01903#SignedProperties",
-                            "URI": "#xades-id-8a089d274fa5cb483630475b09f0af29"
-                        },
-                        "ds:Transforms": {
-                            "ds:Transform": {
-                                "_attributes": {
-                                    "Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"
-                                }
-                            }
-                        },
-                        "ds:DigestMethod": {
-                            "_attributes": {
-                                "Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"
-                            }
-                        },
-                        "ds:DigestValue": {
-                            "_text": "csPwXRVxodeZWkd8CICQ2j2IvsUTmzktZ9p3r9shskQ="
-                        }
-                    }
-                ]
-            },
-            "ds:SignatureValue": {
-                "_attributes": {
-                    "Id": "value-id-8a089d274fa5cb483630475b09f0af29"
-                },
-                "_text": "dg4Rs5jgVaedf+RQVTfKTUxO8WJe3WffY/prtGO79AlmBLCPq0iY2hgYejZN92qYxljEcwnMTUNcrF0rbonAfDEvkXnKt9Nb9Y/h4YNii6fHWiLqjJWHVK7xKDSZe40dP+Lmq+7Dbc9UeMAFsrp/n6HpaWbaacDoe1F7rwtmRwtFmOKVdJBXZ2WunFiqHGpC6jTQGzofJTPyFo4dKt6RawsdNYIOUPKvAwzgeu8dht6MCCOak4efQLYxkjOqsCssz/7PiWYdwMv8LRx3grJorOMafmzx/49tfqIOt2r1QFZ+A88+hCLXKV62efmIt3af+JLPvYQutpX+JSSnXQmkZA=="
-            },
-            "ds:KeyInfo": {
-                "ds:X509Data": {
-                    "ds:X509Certificate": {
-                        "_text": "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"
-                    }
-                }
-            },
-            "ds:Object": {
-                "xades:QualifyingProperties": {
-                    "_attributes": {
-                        "xmlns:xades": "http://uri.etsi.org/01903/v1.3.2#",
-                        "Target": "#id-8a089d274fa5cb483630475b09f0af29"
-                    },
-                    "xades:SignedProperties": {
-                        "_attributes": {
-                            "Id": "xades-id-8a089d274fa5cb483630475b09f0af29"
-                        },
-                        "xades:SignedSignatureProperties": {
-                            "xades:SigningTime": {
-                                "_text": "2019-06-03T13:25:17Z"
-                            },
-                            "xades:SigningCertificateV2": {
-                                "xades:Cert": {
-                                    "xades:CertDigest": {
-                                        "ds:DigestMethod": {
-                                            "_attributes": {
-                                                "Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"
-                                            }
-                                        },
-                                        "ds:DigestValue": {
-                                            "_text": "w5+GhF54Lkq0+KqGAuRy9F43a8wJdy9BpmCjVXBJhyY="
-                                        }
-                                    },
-                                    "xades:IssuerSerialV2": {
-                                        "_text": "MIGUMIGLpIGIMIGFMQswCQYDVQQGEwJJVDEVMBMGA1UECgwMSU5GT0NFUlQgU1BBMSIwIAYDVQQLDBlDZXJ0aWZpY2F0b3JlIEFjY3JlZGl0YXRvMRQwEgYDVQQFEwswNzk0NTIxMTAwNjElMCMGA1UEAwwcSW5mb0NlcnQgRmlybWEgUXVhbGlmaWNhdGEgMgIEAIO3gA=="
-                                    }
-                                }
-                            }
-                        },
-                        "xades:SignedDataObjectProperties": {
-                            "xades:DataObjectFormat": {
-                                "_attributes": {
-                                    "ObjectReference": "#r-id-1"
-                                },
-                                "xades:MimeType": {
-                                    "_text": "application/octet-stream"
-                                }
-                            }
-                        }
+                        "_text": "8268.90"
                     }
                 }
             }

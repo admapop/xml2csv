@@ -1,6 +1,9 @@
 #xmls
 xmls/
 .xml
+Deliveroo/
+temp/
+.csv
 
 # Logs
 logs

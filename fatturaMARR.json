@@ -1,0 +1,424 @@
+{
+    "_declaration": {
+        "_attributes": {
+            "version": "1.0",
+            "encoding": "UTF-8"
+        }
+    },
+    "p:FatturaElettronica": {
+        "_attributes": {
+            "versione": "FPR12",
+            "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
+            "xmlns:p": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2 fatturaordinaria_v1.2.xsd "
+        },
+        "FatturaElettronicaHeader": {
+            "DatiTrasmissione": {
+                "IdTrasmittente": {
+                    "IdPaese": {
+                        "_text": "IT"
+                    },
+                    "IdCodice": {
+                        "_text": "01836980365"
+                    }
+                },
+                "ProgressivoInvio": {
+                    "_text": "A33F7"
+                },
+                "FormatoTrasmissione": {
+                    "_text": "FPR12"
+                },
+                "CodiceDestinatario": {
+                    "_text": "BA6ET11"
+                },
+                "ContattiTrasmittente": {
+                    "Telefono": {
+                        "_text": "0541746111"
+                    }
+                }
+            },
+            "CedentePrestatore": {
+                "DatiAnagrafici": {
+                    "IdFiscaleIVA": {
+                        "IdPaese": {
+                            "_text": "IT"
+                        },
+                        "IdCodice": {
+                            "_text": "02686290400"
+                        }
+                    },
+                    "Anagrafica": {
+                        "Denominazione": {
+                            "_text": "MARR Spa"
+                        }
+                    },
+                    "RegimeFiscale": {
+                        "_text": "RF01"
+                    }
+                },
+                "Sede": {
+                    "Indirizzo": {
+                        "_text": "VIA SPAGNA, 20"
+                    },
+                    "CAP": {
+                        "_text": "47921"
+                    },
+                    "Comune": {
+                        "_text": "RIMINI"
+                    },
+                    "Provincia": {
+                        "_text": "RN"
+                    },
+                    "Nazione": {
+                        "_text": "IT"
+                    }
+                },
+                "StabileOrganizzazione": {
+                    "Indirizzo": {
+                        "_text": "VIA SPAGNA, 20"
+                    },
+                    "CAP": {
+                        "_text": "47921"
+                    },
+                    "Comune": {
+                        "_text": "RIMINI"
+                    },
+                    "Provincia": {
+                        "_text": "RN"
+                    },
+                    "Nazione": {
+                        "_text": "IT"
+                    }
+                }
+            },
+            "CessionarioCommittente": {
+                "DatiAnagrafici": {
+                    "IdFiscaleIVA": {
+                        "IdPaese": {
+                            "_text": "IT"
+                        },
+                        "IdCodice": {
+                            "_text": "09070560967"
+                        }
+                    },
+                    "CodiceFiscale": {
+                        "_text": "09070560967"
+                    },
+                    "Anagrafica": {
+                        "Denominazione": {
+                            "_text": "BURGEZ SRL"
+                        }
+                    }
+                },
+                "Sede": {
+                    "Indirizzo": {
+                        "_text": "VIA VITTORIO VENETO, 28"
+                    },
+                    "CAP": {
+                        "_text": "20124"
+                    },
+                    "Comune": {
+                        "_text": "MILANO"
+                    },
+                    "Nazione": {
+                        "_text": "IT"
+                    }
+                }
+            },
+            "TerzoIntermediarioOSoggettoEmittente": {
+                "DatiAnagrafici": {
+                    "IdFiscaleIVA": {
+                        "IdPaese": {
+                            "_text": "IT"
+                        },
+                        "IdCodice": {
+                            "_text": "03725940237"
+                        }
+                    },
+                    "Anagrafica": {
+                        "Denominazione": {
+                            "_text": "STDM Srl"
+                        }
+                    }
+                }
+            },
+            "SoggettoEmittente": {
+                "_text": "TZ"
+            }
+        },
+        "FatturaElettronicaBody": {
+            "DatiGenerali": {
+                "DatiGeneraliDocumento": {
+                    "TipoDocumento": {
+                        "_text": "TD01"
+                    },
+                    "Divisa": {
+                        "_text": "EUR"
+                    },
+                    "Data": {
+                        "_text": "2019-06-29"
+                    },
+                    "Numero": {
+                        "_text": "E/090842"
+                    },
+                    "ImportoTotaleDocumento": {
+                        "_text": "38.79"
+                    },
+                    "Causale": [
+                        {
+                            "_text": "Vendita"
+                        },
+                        {
+                            "_text": "Altro luogo di destinazione:\n(00702710) - BURGEZ MARGHERA (472789)\nVIA MARGHERA, 18\n20149 MILANO - MI"
+                        }
+                    ]
+                },
+                "DatiDDT": [
+                    {
+                        "NumeroDDT": {
+                            "_text": "E/000065191"
+                        },
+                        "DataDDT": {
+                            "_text": "2019-06-28"
+                        },
+                        "RiferimentoNumeroLinea": [
+                            {
+                                "_text": "1"
+                            },
+                            {
+                                "_text": "2"
+                            }
+                        ]
+                    },
+                    {
+                        "NumeroDDT": {
+                            "_text": "E/000065615"
+                        },
+                        "DataDDT": {
+                            "_text": "2019-06-29"
+                        },
+                        "RiferimentoNumeroLinea": [
+                            {
+                                "_text": "3"
+                            },
+                            {
+                                "_text": "4"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "DatiBeniServizi": {
+                "DettaglioLinee": [
+                    {
+                        "NumeroLinea": {
+                            "_text": "1"
+                        },
+                        "CodiceArticolo": {
+                            "CodiceTipo": {
+                                "_text": "COD"
+                            },
+                            "CodiceValore": {
+                                "_text": "031919"
+                            }
+                        },
+                        "Descrizione": {
+                            "_text": "POMODORI INSALATARI CAT.I IT"
+                        },
+                        "Quantita": {
+                            "_text": "4.70"
+                        },
+                        "UnitaMisura": {
+                            "_text": "KG"
+                        },
+                        "PrezzoUnitario": {
+                            "_text": "1.70"
+                        },
+                        "PrezzoTotale": {
+                            "_text": "7.99000000"
+                        },
+                        "AliquotaIVA": {
+                            "_text": "4.00"
+                        }
+                    },
+                    {
+                        "NumeroLinea": {
+                            "_text": "2"
+                        },
+                        "CodiceArticolo": {
+                            "CodiceTipo": {
+                                "_text": "COD"
+                            },
+                            "CodiceValore": {
+                                "_text": "053597"
+                            }
+                        },
+                        "Descrizione": {
+                            "_text": "LATTUGA GENTILE CAT.I               IT"
+                        },
+                        "Quantita": {
+                            "_text": "1.70"
+                        },
+                        "UnitaMisura": {
+                            "_text": "KG"
+                        },
+                        "PrezzoUnitario": {
+                            "_text": "1.65"
+                        },
+                        "PrezzoTotale": {
+                            "_text": "2.80500000"
+                        },
+                        "AliquotaIVA": {
+                            "_text": "4.00"
+                        }
+                    },
+                    {
+                        "NumeroLinea": {
+                            "_text": "3"
+                        },
+                        "CodiceArticolo": {
+                            "CodiceTipo": {
+                                "_text": "COD"
+                            },
+                            "CodiceValore": {
+                                "_text": "031919"
+                            }
+                        },
+                        "Descrizione": {
+                            "_text": "POMODORI INSALATARI CAT.I IT"
+                        },
+                        "Quantita": {
+                            "_text": "11.90"
+                        },
+                        "UnitaMisura": {
+                            "_text": "KG"
+                        },
+                        "PrezzoUnitario": {
+                            "_text": "1.70"
+                        },
+                        "PrezzoTotale": {
+                            "_text": "20.23000000"
+                        },
+                        "AliquotaIVA": {
+                            "_text": "4.00"
+                        }
+                    },
+                    {
+                        "NumeroLinea": {
+                            "_text": "4"
+                        },
+                        "CodiceArticolo": {
+                            "CodiceTipo": {
+                                "_text": "COD"
+                            },
+                            "CodiceValore": {
+                                "_text": "053597"
+                            }
+                        },
+                        "Descrizione": {
+                            "_text": "LATTUGA GENTILE CAT.I               IT"
+                        },
+                        "Quantita": {
+                            "_text": "3.80"
+                        },
+                        "UnitaMisura": {
+                            "_text": "KG"
+                        },
+                        "PrezzoUnitario": {
+                            "_text": "1.65"
+                        },
+                        "PrezzoTotale": {
+                            "_text": "6.27000000"
+                        },
+                        "AliquotaIVA": {
+                            "_text": "4.00"
+                        }
+                    }
+                ],
+                "DatiRiepilogo": {
+                    "AliquotaIVA": {
+                        "_text": "4.00"
+                    },
+                    "ImponibileImporto": {
+                        "_text": "37.30"
+                    },
+                    "Imposta": {
+                        "_text": "1.49"
+                    },
+                    "EsigibilitaIVA": {
+                        "_text": "I"
+                    }
+                }
+            },
+            "DatiPagamento": {
+                "CondizioniPagamento": {
+                    "_text": "TP02"
+                },
+                "DettaglioPagamento": {
+                    "ModalitaPagamento": {
+                        "_text": "MP12"
+                    },
+                    "GiorniTerminiPagamento": {
+                        "_text": "30"
+                    },
+                    "DataScadenzaPagamento": {
+                        "_text": "2019-07-31"
+                    },
+                    "ImportoPagamento": {
+                        "_text": "38.79"
+                    },
+                    "IBAN": {
+                        "_text": "IT35A0311123300000000092427"
+                    }
+                }
+            },
+            "Allegati": [
+                {
+                    "NomeAttachment": {
+                        "_text": "Condizioni di pagamento"
+                    },
+                    "FormatoAttachment": {
+                        "_text": "TXT"
+                    },
+                    "Attachment": {
+                        "_text": "UklDRVZVVEEgQkFOQ0FSSUE=\n\t\t\t"
+                    }
+                },
+                {
+                    "NomeAttachment": {
+                        "_text": "Riferimento documenti fornitore"
+                    },
+                    "FormatoAttachment": {
+                        "_text": "TXT"
+                    },
+                    "Attachment": {
+                        "_text": "CkZvcm5pdC4gMDAwMjgzMTcgRlVNQUdBTExJIERBTklMTyBTLlI=\n\t\t\t"
+                    }
+                },
+                {
+                    "NomeAttachment": {
+                        "_text": "Condizioni di vendita"
+                    },
+                    "FormatoAttachment": {
+                        "_text": "TXT"
+                    },
+                    "Attachment": {
+                        "_text": "SU4gQVBQTElDQVpJT05FIERFTEwnQVJULjI2IEQuUC5SLiAyNi8xMC83MiBOLjYzMy4gTk9OIFNJ\nIFJJQ09OT1NDT05PIFNDT05USQpFRCBBUlJPVE9OREFNRU5USSBTRSBOT04gRE9DVU1FTlRBVEku\nCgpDT05ESVpJT05JIEdFTkVSQUxJIERJIFZFTkRJVEEKQ0FMSSAtIEkgY2FsaSBuYXR1cmFsaSBj\naGUgbGEgbWVyY2UgZG92ZXNzZSBzdWJpcmUgZHVyYW50ZSBpbCB0cmFzcG9ydG8gc29ubyBhCmNh\ncmljbyBkZWwgQ29tcHJhdG9yZTogc2kgaW50ZW5kZSBwZXIgJ25hdHVyYWxpJyBpIGNhbGkgcmlz\nY29udHJhdGkgbmVsbGEgbWlzdXJhCnBhcmkgb2QgaW5mZXJpb3JlIGFsbCcxJSBkZWwgcGVzbyBn\nbG9iYWxlIGRlbGxhIG1lcmNlIGZvcm5pdGEuClRSQUNDSUFCSUxJVEEnIC0gQWkgc2Vuc2kgZGVs\nbCdhcnRpY29sbyA4IGRlbCBSZWcuQ0UgMjA2NS8yMDAxIGxlIGluZm9ybWF6aW9uaQpkaSB0cmFj\nY2lhYmlsaXRhJyBkZWkgcHJvZG90dGkgZGVsbGEgcGVzY2Egc29ubyByaXBvcnRhdGUgaW4gZXRp\nY2hldHRhLgpSZWdvbGFtZW50byBSRUFDSCAtIExlIHNjaGVkZSBkYXRpIGRpIHNpY3VyZXp6YSBh\naSBzZW5zaSBkZWxsJ2FydC4gMzEgZGVsClJlZy4gQ0UgMTkwNy8yMDA2IHNvbm8gZGlzcG9uaWJp\nbGkKUkVDTEFNSSAtIElsIGNvbXByYXRvcmUgZScgdGVudXRvIGEgdmVyaWZpY2FyZSBsYSBtZXJj\nZSBzdWwgc2l0byB3d3cubWFyci5pdApvcHB1cmUgcG9zc29ubyBlc3NlcmUgcmljaGllc3RlIGFs\nIG51bWVybyAwNTQxLzc0NjI0OSBhbCBtb21lbnRvIGRlbCByaXRpcm8sCnByZXNlbnRhbmRvIGlt\nbWVkaWF0YW1lbnRlIHJlY2xhbW8gYWwgVmV0dG9yZSBpbiBjYXNvIGRpIGF2YXJpYSBvIGRpZmZl\ncmVuemUsCnNhbHZvIGNoZSBxdWVzdGUgdWx0aW1lIG5vbiBzaWFubyBkb3Z1dGUgYWkgY2FsaSBu\nYXR1cmFsaSBkaSBjdWkKYWwgcHVudG8gcHJlY2VkZW50ZQpQQUdBTUVOVEkgLSBJbCBwYWdhbWVu\ndG8gZGVsbGEgcHJlc2VudGUgZmF0dHVyYSwgZXZlbnR1YWxtZW50ZSBhbmNoZSBhdHRyYXZlcnNv\nCmFnZW50ZSwgbXVuaXRvIGRlbGxhIGNsYXVzb2xhIE5PTiBUUkFTRkVSSUJJTEUgZG92cmEnIGVz\nc2VyZSBlZmZldHR1YXRvLApwZXIgYXZlcmUgZWZmZXR0byBsaWJlcmF0b3JpbywgYSBtZXp6byBh\nc3NlZ25vIGJhbmNhcmlvL2NpcmNvbGFyZSwgaW50ZXN0YXRvIGEKTUFSUiBTLnAuQS4gbyBhbGwn\nZXZlbnR1YWxlIGNlc3Npb25hcmlvIGRlbCBjcmVkaXRvLgpGT1JPIEdJVURJWklBUklPIC0gUGVy\nIHF1YWx1bnF1ZSBjb250cm92ZXJzaWEgc2FyYScgY29tcGV0ZW50ZSBsJ2F1dG9yaXRhJwpnaXVk\naXppYXJpYSBkZWwgRm9ybyBvdmUgaGEgc2VkZSBpbCB2ZW5kaXRvcmUuCkluIGNhc28gZGkgbWFu\nY2F0byBwYWdhbWVudG8gZGVsbGEgcHJlc2VudGUgZmF0dHVyYSBsYSBzLnAuYS4gTUFSUiBhcHBs\naWNoZXJhJwpnbGkgaW50ZXJlc3NpIGRpIG1vcmEgYWkgc2Vuc2kgZGVsbCdhcnQuNSBkZWwgRGVj\ncmV0byBMZWdpc2xhdGl2byBuLjIzMQpkZWwgOS4xMC4wMgpBQ0NFVFRJQU1PIExFIENPTkRJWklP\nTkkgR0VORVJBTEkgREkgVkVORElUQSBESSBDVUkgU09QUkE=\n\t\t\t"
+                    }
+                },
+                {
+                    "NomeAttachment": {
+                        "_text": "Annotazioni al documento"
+                    },
+                    "FormatoAttachment": {
+                        "_text": "TXT"
+                    },
+                    "Attachment": {
+                        "_text": "UmlmLiByaWdoZSAxLDIJCQoJCVJpZi4gbnMuIEJPTExBIE6wIEUvMDAwMDY1MTkxIGRlbCAyOC8w\nNi8xOQoJCUZvcm5pdC4gMDAwMjgzMTcgRlVNQUdBTExJIERBTklMTyBTLlIKUmlmLiByaWdoZSAz\nLDQJCQoJCVJpZi4gbnMuIEJPTExBIE6wIEUvMDAwMDY1NjE1IGRlbCAyOS8wNi8xOQoJCVJpZi4g\nbnMuIE9SRElORSBOsCBSSUYgSDAgTrAgOTMzNjgyOTggICAgICAgICAgICAgZGVsIDI5LzA2LzE5\nCgkJRm9ybml0LiAwMDAyODMxNyBGVU1BR0FMTEkgREFOSUxPIFMuUgoKClBlciBpIHByb2RvdHRp\nIGFncmljb2xpIGVkIGFncm9hbGltZW50YXJpLCBhc3NvbHZlIGdsaSBvYmJsaWdoaSBkaSBjdWkg\nYWxsJ2FydC42MiwgY29tbWEgMQpkZWwgRC5MIG4uMSBkZWwgMjQvMDEvMjAxMiwgY29udmVydGl0\nbyBjb24gbW9kaWZpY2F6aW9uaSBkYWxsYSBMLiBuLjI3IGRlbCAyNC8wMy8yMDEyClNpIGFubm90\nYSBhaSBzZW5zaSBhcnQuIDIxIGNvbW1hIDIgbGV0dGVyYSBuKSBEUFIgNjMzLzcyIGNoZSBpbCBw\ncmVzZW50ZSBkb2N1bWVudG8KZScgc3RhdG8gZW1lc3NvIGRhbCB0ZXJ6byBTVERNIHNybCBwZXIg\nY29udG8gZGVsIGNlZGVudGUgTUFSUiBTcGEuCjxJQkFOPklUMzVBMDMxMTEyMzMwMDAwMDAwMDA5\nMjQyNwo8Q29kLklzbzo+IElUIDxQLkl2YUNsOj4gMDkwNzA1NjA5NjcgICAgICAgICAgPEMuRmlz\nYy46PiAwOTA3MDU2MDk2Nwo8VC5QYWcuOj4gUklDRVYuQkFOQ0FSSUEgMzAgR0cgRklORSBNRVNF\nICAgICAgICAgICAgICAgICAgICAgICA8U2NhZC46PiAzMS0wNy0yMDE5IDxHRzo+IDMwCg==\n\t\t\t"
+                    }
+                }
+            ]
+        }
+    }
+}

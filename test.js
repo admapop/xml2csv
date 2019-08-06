@@ -1,16 +1,34 @@
 const convert = require('xml-js');
 const { parse } = require('json2csv');
 const fs = require('fs');
+const re = /FatturaElettronica/;
 
 let test = fs.readdirSync('./xmls/');
 // console.log(test)
 
-const fatturaXML = fs.readFileSync('./Deliveroo/01734_IT01641790702_fvXrv.xml');
+// const fatturaXML = fs.readFileSync('./COCA/234_IT12363410155_00sub.xml');
+const fatturaXML = fs.readFileSync('./xmls2/6789_IT12883420155_3YILD.xml');
 const json = convert.xml2json(fatturaXML, { compact: true, spaces: 4 });
-// fs.writeFileSync('./Deliveroo/fattura.json', json, err => {if(err) console.log(err)});
+// fs.writeFileSync('./xmls2/fattura.json', json, err => {if(err) console.log(err)});
 let fattura = JSON.parse(json);
-// console.log(fattura['ns3:FatturaElettronica'].FatturaElettronicaBody.DatiBeniServizi.DatiRiepilogo.Imposta['_text'])
-console.log(Array.isArray(fattura['ns3:FatturaElettronica'].FatturaElettronicaBody.DatiBeniServizi.DatiRiepilogo))
+const entries = Object.entries(fattura)
+delete entries[1][1].FatturaElettronicaBody.Allegati
+console.log(entries[1][1].FatturaElettronicaBody)
+
+// entries.forEach((array) => {
+//     re.test(array[0]) 
+//     ? console.log(array[1]) 
+//     : 'bollocks' 
+// })
+
+// console.log(entries[1][1].FatturaElettronicaHeader)
+
+// console.log(
+//     fattura['ns0:FatturaElettronica'].FatturaElettronicaBody
+//     )
+
+
+// console.log(Array.isArray(fattura['ns3:FatturaElettronica'].FatturaElettronicaBody.DatiBeniServizi.DatiRiepilogo))
 
 
 

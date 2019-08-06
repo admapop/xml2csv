@@ -1,9 +1,13 @@
 #xmls
 .csv
 xmls/
+xmls2/
 .xml
 Deliveroo/
 temp/
+COCA/
+MARR/
+ultimate/
 
 
 # Logs

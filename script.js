@@ -7,7 +7,7 @@ const PDFJS = require('pdfjs-dist')
 
 let fileArray = fs.readdirSync('./ultimate/');
 
-const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE'];
+const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO',];
 let myData = [];
 const individualFattura = {
     xml: '',
@@ -68,20 +68,25 @@ const pdv = async (pdf) => {
     let output = [];
     for (let individualPdf of pdf) {
         let check = false;
-        let file = individualPdf[1]
-        let text = individualPdf[0]
+        let file = individualPdf[1];
+        let text = individualPdf[0].toUpperCase();
         for (let pdv of PDV) {
             if (text.includes(pdv)) {
-                check = true;
-                output.push([pdv, file])
+                if (pdv === "GIAN GIACOMO") {
+                    check = true;
+                    output.push([PDV[4], file]);
+                } else {
+                    check = true;
+                    output.push([pdv, file]);
+                }
             }
         }
         if (!check) {
-            let result = 'No pdv in allegato'
-            output.push([result, file])
+            let result = 'No pdv in allegato';
+            output.push([result, file]);
         }
     }
-    return output
+    return output;
 }
 
 //INITIAL READ OF ALL FILES

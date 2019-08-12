@@ -98,3 +98,4 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+Fatture_new.csv

@@ -8,6 +8,7 @@ const PDFJS = require('pdfjs-dist')
 let fileArray = fs.readdirSync('./ultimate/');
 
 const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO',];
+const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE']]
 let myData = [];
 const individualFattura = {
     xml: '',
@@ -35,10 +36,10 @@ const getPageText = async (pdf, pageNo) => {
 // GET TEXT (FROM PDF OR OTHER MEANS) TO USE FOR PDV DETECTION
 const getText = async (data) => {
     let pdfArray = []
-    try {
-        for (let unit of data) {
-            let buf = unit[1];
-            let file = unit[0].xml
+    for (let unit of data) {
+        let buf = unit[1];
+        let file = unit[0].xml
+        try {
             if (typeof buf === "string") {
                 pdfArray.push([buf, file])
             } else if (typeof buf === "number") {
@@ -54,13 +55,12 @@ const getText = async (data) => {
                 const pageTexts = await Promise.all(pageTextPromises)
                 pdfArray.push([pageTexts.join(''), file])
             }
+        } catch (error) {
+            console.log(error)
+            console.log('failed at getText', file)
         }
-        console.log(pdfArray)
-        return pdfArray;
-    } catch (error) {
-        console.log(error)
-        console.log('failed at getText')
     }
+    return pdfArray;
 }
 
 //CONTROLS AND SETS THE PDV FOR EVERY INVOICE
@@ -90,7 +90,7 @@ const pdv = async (pdf) => {
 }
 
 //INITIAL READ OF ALL FILES
-const readingFile = async (fileAarray) => {
+const readingFile = async (fileArray) => {
     let entriesArray = []
     for (let file of fileArray) {
         const fatturaXML = fs.readFileSync('./ultimate/' + file);
@@ -103,37 +103,95 @@ const readingFile = async (fileAarray) => {
     return entriesArray;
 }
 
+const stringXML = async (fileArray) => {
+    let stringArray = []
+    for (let file of fileArray) {
+        let check = false;
+        error = file;
+        const fatturaXML = fs.readFileSync('./ultimate/' + file);
+        for (let _pdv of PDV) {
+            if (fatturaXML.includes(_pdv)) {
+                if (_pdv === "GIAN GIACOMO") {
+                    check = true;
+                    stringArray.push([PDV[4], file]);
+                } else {
+                    check = true;
+                    stringArray.push([_pdv, file]);
+                }
+            }
+        }
+        if (!check) {
+            let result = 'No pdv in allegato';
+            stringArray.push([result, file]);
+        }
+    }
+    return stringArray;
+}
+
 //FETCHES THE DATA FROM THE NODES
 const fetchData = async (array, file) => {
     let temp = {}
-    array.FatturaElettronicaBody.DatiPagamento === undefined || array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.DataScadenzaPagamento === undefined
-        ? dataScadenza = ''
-        : dataScadenza = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.DataScadenzaPagamento['_text']
-    numeroFattura = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Numero['_text']
-    dataFattura = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Data['_text']
-    array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione !== undefined
-        ? fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione['_text']
-        : fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome['_text']
-    array.FatturaElettronicaBody.DatiPagamento !== undefined
-        ? importo = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento['_text']
-        : importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
+    try {
+        array.FatturaElettronicaBody.DatiPagamento === undefined || array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.DataScadenzaPagamento === undefined
+            ? dataScadenza = ''
+            : dataScadenza = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.DataScadenzaPagamento['_text']
+        numeroFattura = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Numero['_text']
+        dataFattura = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Data['_text']
+        array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione !== undefined
+            ? fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione['_text']
+            : fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome['_text']
+        array.FatturaElettronicaBody.DatiPagamento !== undefined
+            ? importo = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento['_text']
+            : importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
 
-    individualFattura.xml = file
-    individualFattura.numeroFattura = numeroFattura
-    individualFattura.dataScadenza = dataScadenza
-    individualFattura.dataFattura = dataFattura
-    individualFattura.fornitore = fornitore
-    individualFattura.importo = importo
-    Object.assign(temp, individualFattura)
-    return temp;
+        individualFattura.xml = file
+        individualFattura.numeroFattura = numeroFattura
+        individualFattura.dataScadenza = dataScadenza
+        individualFattura.dataFattura = dataFattura
+        individualFattura.fornitore = fornitore
+        individualFattura.importo = importo
+        Object.assign(temp, individualFattura)
+        return temp;
+    } catch (error) {
+        console.log(error)
+        console.log('failed at fetchData', file)
+    }
 }
 
 //COMBINES THE INVOICE AND PDV DATA AND PUSHES IT TO INVOICE OBJECT
-const pushData = async (invData, pdvData) => {
+const pushData = async (invData, pdvData, xmlData) => {
     let tempData = []
+    let newPdvData = []
+    let check;
+    let prev = []
+    pdvData.map((data) => {
+        check = false
+        for (let xml of xmlData) {
+            if (data[1] === xml[1]) {
+                if (data[0] === xml[0]) {
+                    check = true
+                    if (data[1] !== prev) {
+                        newPdvData.push(data)
+                    }
+                    prev = data[1]
+                } else if (data[0] === "No pdv in allegato" && xml[0] !== "No pdv in allegato") {
+                    // console.log('not equal' ,data[0],xml[0])
+                    if (data[1] !== prev) {
+                        newPdvData.push([xml[0], data[1]])
+                    }
+                    prev = data[1]
+                } else {
+                    if (data[1] !== prev) {
+                        newPdvData.push(data)
+                    }
+                    prev = data[1]
+                }
+            }
+        }
+    })
     for (let invoices of invData) {
         let invoice = invoices[0];
-        for (let file of pdvData) {
+        for (let file of newPdvData) {
             if (file[1] === invoice.xml) {
                 invoice.puntoVendita = file[0]
             }
@@ -157,9 +215,16 @@ const loop = async (entries) => {
                 error = file;
                 invData = await fetchData(array[1], file)
                 try {
-                    if (array[1].FatturaElettronicaBody.Allegati === undefined) {
+                    if(invData.fornitore === "DELIVEROO ITALY S.r.l.") {
+                        for (let codice of Delivero) {
+                            if (array[1].FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Causale["_text"].includes(codice[0])) {
+                                buf = codice[1]
+                            }
+                        }
+                    } else if (array[1].FatturaElettronicaBody.Allegati === undefined) {
+                        let test = JSON.stringify(array[1].FatturaElettronicaBody)
                         buf = 0;
-                    } else if (array[1].FatturaElettronicaBody.Allegati.Attachment === undefined) { //For suppliers like MARR which have an array of attachments
+                    } else if (invData.fornitore === "MARR Spa") { //For suppliers like MARR which have an array of attachments
                         if (array[1].FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Causale === undefined) {
                             buf = "no pdv"
                         } else {
@@ -171,6 +236,22 @@ const loop = async (entries) => {
                                 }
                             }
                         }
+                    } else if (array[1].FatturaElettronicaBody.Allegati.FormatoAttachment === undefined) { // usually means there are multiple attachments
+                        attachments = array[1].FatturaElettronicaBody.Allegati
+                        for (let attachment in attachments) {
+                            if (attachment.FormatoAttachment === undefined) {
+                                buf = 0;
+                            } else {
+                                if (attachment.FormatoAttachment['_text'] === "PDF") {
+                                    const raw = attachment.Attachment["_text"]
+                                    let bin = atob(raw)
+                                    buf = Buffer.from(bin, 'binary')
+                                } else {
+                                    buf = 0;
+                                }
+                            }
+                        }
+                        buf = 0;
                     } else {
                         const raw = array[1].FatturaElettronicaBody.Allegati.Attachment["_text"]
                         let bin = atob(raw)
@@ -178,8 +259,7 @@ const loop = async (entries) => {
                     }
                     invDataArray.push([invData, buf])
                 } catch (e) {
-                    console.log(e);
-                    console.log(error);
+                    console.log(e, file);
                 }
             } else { }
         }
@@ -190,10 +270,11 @@ const loop = async (entries) => {
 //MAIN FUNCTION
 const mainTest = async () => {
     let entries = await readingFile(fileArray);
+    let xmlPDV = await stringXML(fileArray)
     let data = await loop(entries)
     const pdf = await getText(data)
     let PDV = await pdv(pdf);
-    let csvData = await pushData(data, PDV);
+    let csvData = await pushData(data, PDV, xmlPDV);
     writeCSV(csvData)
 }
 

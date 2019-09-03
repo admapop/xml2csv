@@ -141,7 +141,9 @@ const fetchData = async (array, file) => {
             ? fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione['_text']
             : fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome['_text']
         array.FatturaElettronicaBody.DatiPagamento !== undefined
-            ? importo = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento['_text']
+            ? array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento === undefined
+                ? importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
+                : importo = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento['_text']
             : importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
 
         individualFattura.xml = file

@@ -9,6 +9,7 @@ let fileArray = fs.readdirSync('./ultimate/');
 
 const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO',];
 const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE']]
+const Glovo = [['P44026', 'CARMAGNOLA'], ['P2292', 'SAVONA'], ['P8413', 'MARGHERA'], ['P8280', 'EUSTACHI'], ['P94710', 'TICINESE']]
 let myData = [];
 const individualFattura = {
     xml: '',
@@ -110,7 +111,7 @@ const stringXML = async (fileArray) => {
         error = file;
         const fatturaXML = fs.readFileSync('./ultimate/' + file);
         for (let _pdv of PDV) {
-            if (fatturaXML.includes(_pdv)) {
+            if (fatturaXML.toString().toUpperCase().includes(_pdv)) {
                 if (_pdv === "GIAN GIACOMO") {
                     check = true;
                     stringArray.push([PDV[4], file]);
@@ -145,7 +146,11 @@ const fetchData = async (array, file) => {
                 ? importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
                 : importo = array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento['_text']
             : importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
-
+            // Checks if document is Credit Note
+        if (array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.TipoDocumento['_text'] === 'TD04') {
+            importo = importo * -1
+            importo = importo.toString();
+        }
         individualFattura.xml = file
         individualFattura.numeroFattura = numeroFattura
         individualFattura.dataScadenza = dataScadenza
@@ -196,6 +201,43 @@ const pushData = async (invData, pdvData, xmlData) => {
         for (let file of newPdvData) {
             if (file[1] === invoice.xml) {
                 invoice.puntoVendita = file[0]
+                try {
+                    switch(file[0]) {
+                        case 'SAVONA':
+                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Savona/${invoice.fornitore}_${file[1]}`)
+                            break;
+                        case 'EUSTACHI':
+                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Eustachi/${invoice.fornitore}_${file[1]}`)
+                            break;    
+                        case 'MARGHERA':
+                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Marghera/${invoice.fornitore}_${file[1]}`)
+                            break;    
+                        case 'CARMAGNOLA':
+                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Carmagnola/${invoice.fornitore}_${file[1]}`)
+                            break;    
+                        case 'TICINESE':
+                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Ticinese/${invoice.fornitore}_${file[1]}`)
+                            break;    
+                        default:
+                            switch(invoice.fornitore) {
+                                case 'Foodinho, SRL':
+                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Delivery/${invoice.fornitore}_${file[1]}`)
+                                    break;
+                                case 'DELIVEROO ITALY S.r.l.':
+                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Delivery/${invoice.fornitore}_${file[1]}`)
+                                    break;
+                                case 'Just-Eat Italy S.r.l':
+                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Delivery/${invoice.fornitore}_${file[1]}`)
+                                    break;
+                                default:
+                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/${invoice.fornitore}_${file[1]}`)
+                                    break;
+                            }
+                            break;
+                        }        
+                } catch (err) {
+                    console.log(err)
+                }    
             }
         }
         tempData.push(invoice)
@@ -223,12 +265,26 @@ const loop = async (entries) => {
                                 buf = codice[1]
                             }
                         }
+                    } else if(invData.fornitore === "Foodinho, SRL") {
+                        for (let codice of Glovo) {
+                            if (array[1].FatturaElettronicaBody.DatiBeniServizi.DettaglioLinee.Descrizione["_text"].includes(codice[0])) {
+                                buf = codice[1]
+                            }
+                        }
                     } else if (array[1].FatturaElettronicaBody.Allegati === undefined) {
                         let test = JSON.stringify(array[1].FatturaElettronicaBody)
                         buf = 0;
                     } else if (invData.fornitore === "MARR Spa") { //For suppliers like MARR which have an array of attachments
                         if (array[1].FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Causale === undefined) {
                             buf = "no pdv"
+                        } else if (!Array.isArray(array[1].FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Causale)) {
+                            console.log('im here')
+                            let causale = array[1].FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Causale["_text"]
+                            for (_pdv of PDV) {
+                                if (causale.includes(_pdv)) {
+                                    buf = _pdv;
+                                }
+                            }
                         } else {
                             for (let innerArray of array[1].FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Causale) {
                                 for (_pdv of PDV) {
@@ -253,6 +309,8 @@ const loop = async (entries) => {
                                 }
                             }
                         }
+                        buf = 0;
+                    } else if (array[1].FatturaElettronicaBody.Allegati.FormatoAttachment['_text'] === "TXT") {
                         buf = 0;
                     } else {
                         const raw = array[1].FatturaElettronicaBody.Allegati.Attachment["_text"]

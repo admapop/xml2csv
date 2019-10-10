@@ -140,7 +140,7 @@ const fetchData = async (array, file) => {
         dataFattura = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.Data['_text']
         array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione !== undefined
             ? fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione['_text']
-            : fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome['_text']
+            : fornitore = array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome['_text'] + " " + array.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Cognome['_text']
         array.FatturaElettronicaBody.DatiPagamento !== undefined
             ? array.FatturaElettronicaBody.DatiPagamento.DettaglioPagamento.ImportoPagamento === undefined
                 ? importo = array.FatturaElettronicaBody.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento['_text']
@@ -202,6 +202,9 @@ const pushData = async (invData, pdvData, xmlData) => {
             if (file[1] === invoice.xml) {
                 invoice.puntoVendita = file[0]
                 try {
+                    //*************************************************** */
+                    //USEFUL ONLY FOR INSERTING ACQUISTI
+                    //*************************************************** */
                     switch(file[0]) {
                         case 'SAVONA':
                             fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Savona/${invoice.fornitore}_${file[1]}`)
@@ -340,7 +343,7 @@ const mainTest = async () => {
 
 //WRITE TO CSV FUNCTION
 const writeCSV = async (data) => {
-    const fields = ['xml', 'numeroFattura', 'dataScadenza', 'dataFattura', 'fornitore', 'importo', 'puntoVendita'];
+    const fields = ['xml', 'dataScadenza', '', 'fornitore', 'numeroFattura', 'dataFattura', 'puntoVendita', 'importo'];
     const opts = { fields };
     let csv;
     try {

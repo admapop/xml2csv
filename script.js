@@ -9,6 +9,9 @@ const PDFJS = require('pdfjs-dist')
 let fileArray = fs.readdirSync('./ultimate/');
 
 const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO', 'COMO'];
+const SAVONA = ['AGRICOLA VARESINA S.R.L.', ]
+const TICINESE = ['AARON Service Srl']
+const UFFICIO = ['NESPRESSO ITALIANA SPA', 'Notarbartolo & Gervasi S.p.A.', 'CARPOFORO SRL', 'EDOARDO SCINETTI', 'DriveNow Italy S.r.l. c/o BMW Group',];
 const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE']]
 const Glovo = [['P44026', 'CARMAGNOLA'], ['P2292', 'SAVONA'], ['P8413', 'MARGHERA'], ['P8280', 'EUSTACHI'], ['P94710', 'TICINESE']]
 let myData = [];
@@ -248,6 +251,21 @@ const pushData = async (invData, pdvData, xmlData) => {
                 } catch (err) {
                     console.log(err)
                 }    
+            }
+            for (let fornitore of UFFICIO) {
+                if (invoice.fornitore === fornitore) {
+                    invoice.puntoVendita = 'UFFICIO'
+                }
+            }
+            for (let fornitore of SAVONA) {
+                if (invoice.fornitore === fornitore) {
+                    invoice.puntoVendita = 'SAVONA'
+                }
+            }
+            for (let fornitore of TICINESE) {
+                if (invoice.fornitore === fornitore) {
+                    invoice.puntoVendita = 'TICINESE'
+                }
             }
         }
         tempData.push(invoice)

@@ -3,11 +3,12 @@ const { parse } = require('json2csv');
 const fs = require('fs');
 let atob = require('atob')
 const re = /FatturaElettronica/;
+const comoRegEx = /ntgen/i;
 const PDFJS = require('pdfjs-dist')
 
 let fileArray = fs.readdirSync('./ultimate/');
 
-const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO',];
+const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO', 'COMO'];
 const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE']]
 const Glovo = [['P44026', 'CARMAGNOLA'], ['P2292', 'SAVONA'], ['P8413', 'MARGHERA'], ['P8280', 'EUSTACHI'], ['P94710', 'TICINESE']]
 let myData = [];
@@ -76,6 +77,9 @@ const pdv = async (pdf) => {
                 if (pdv === "GIAN GIACOMO") {
                     check = true;
                     output.push([PDV[4], file]);
+                } else if (comoRegEx.test(text)) {
+                    check = true;
+                    output.push([PDV[6], file])
                 } else {
                     check = true;
                     output.push([pdv, file]);
@@ -119,6 +123,9 @@ const stringXML = async (fileArray) => {
                     check = true;
                     stringArray.push([_pdv, file]);
                 }
+            } else if (comoRegEx.test(fatturaXML.toString())) {
+                check = true;
+                stringArray.push([PDV[6], file]);
             }
         }
         if (!check) {

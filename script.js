@@ -6,15 +6,16 @@ const re = /FatturaElettronica/;
 const comoRegEx = /ntgen/i;
 const PDFJS = require('pdfjs-dist')
 
-let fileArray = fs.readdirSync('./ultimate/');
+//*************************************************** */
+//DECLARING ALL OUR VARIABLES
+//*************************************************** */
 
-const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIAN GIACOMO', 'COMO'];
+const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIACOMO MORA', 'COMO', 'BLIGNY'];
 const SAVONA = ['AGRICOLA VARESINA S.R.L.', ]
-const TICINESE = ['AARON Service Srl']
+const TICINESE = ['AARON Service Srl', 'Metro Italia Cash and Carry S.p.A']
 const UFFICIO = ['NESPRESSO ITALIANA SPA', 'Notarbartolo & Gervasi S.p.A.', 'CARPOFORO SRL', 'EDOARDO SCINETTI', 'DriveNow Italy S.r.l. c/o BMW Group',];
 const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE']]
 const Glovo = [['P44026', 'CARMAGNOLA'], ['P2292', 'SAVONA'], ['P8413', 'MARGHERA'], ['P8280', 'EUSTACHI'], ['P94710', 'TICINESE']]
-let myData = [];
 const individualFattura = {
     xml: '',
     numeroFattura: '',
@@ -24,7 +25,25 @@ const individualFattura = {
     importo: '',
     puntoVendita: ''
 }
-let error;
+//**************************************************************************************************************************************************************************** */
+
+//*************************************************** */
+//INPUT FOLDER
+//*************************************************** */
+const folder = './Bonzano/'
+let fileArray = fs.readdirSync(folder);
+
+//*************************************************** */
+//MOVE INVOICES TO RELATIVE FOLDERS?
+//*************************************************** */
+const moveByPDV = false
+const destinationFolder = './Locali/'
+
+//*************************************************** */
+//WRITE CSV FILE?
+//*************************************************** */
+const writeToCSV = false
+const writeFileName = 'Bonzano3'
 
 //FUNCTION USED BY getText() TO PROCESS PDF TEXT
 const getPageText = async (pdf, pageNo) => {
@@ -77,12 +96,12 @@ const pdv = async (pdf) => {
         let text = individualPdf[0].toUpperCase();
         for (let pdv of PDV) {
             if (text.includes(pdv)) {
-                if (pdv === "GIAN GIACOMO") {
+                if (pdv === "GIACOMO MORA") {
                     check = true;
                     output.push([PDV[4], file]);
                 } else if (comoRegEx.test(text)) {
                     check = true;
-                    output.push([PDV[6], file])
+                    output.push(['COMO', file])
                 } else {
                     check = true;
                     output.push([pdv, file]);
@@ -101,7 +120,7 @@ const pdv = async (pdf) => {
 const readingFile = async (fileArray) => {
     let entriesArray = []
     for (let file of fileArray) {
-        const fatturaXML = fs.readFileSync('./ultimate/' + file);
+        const fatturaXML = fs.readFileSync(folder + file);
         const json = convert.xml2json(fatturaXML, { compact: true, spaces: 4 });
         let fattura = JSON.parse(json);
         const entries = Object.entries(fattura);
@@ -116,10 +135,10 @@ const stringXML = async (fileArray) => {
     for (let file of fileArray) {
         let check = false;
         error = file;
-        const fatturaXML = fs.readFileSync('./ultimate/' + file);
+        const fatturaXML = fs.readFileSync(folder + file);
         for (let _pdv of PDV) {
             if (fatturaXML.toString().toUpperCase().includes(_pdv)) {
-                if (_pdv === "GIAN GIACOMO") {
+                if (_pdv === "GIACOMO MORA") {
                     check = true;
                     stringArray.push([PDV[4], file]);
                 } else {
@@ -128,7 +147,7 @@ const stringXML = async (fileArray) => {
                 }
             } else if (comoRegEx.test(fatturaXML.toString())) {
                 check = true;
-                stringArray.push([PDV[6], file]);
+                stringArray.push(['BLIGNY', file]);
             }
         }
         if (!check) {
@@ -215,43 +234,48 @@ const pushData = async (invData, pdvData, xmlData) => {
                     //*************************************************** */
                     //USEFUL ONLY FOR INSERTING ACQUISTI
                     //*************************************************** */
-                    switch(file[0]) {
-                        case 'SAVONA':
-                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Savona/${invoice.fornitore}_${file[1]}`)
-                            break;
-                        case 'EUSTACHI':
-                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Eustachi/${invoice.fornitore}_${file[1]}`)
-                            break;    
-                        case 'MARGHERA':
-                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Marghera/${invoice.fornitore}_${file[1]}`)
-                            break;    
-                        case 'CARMAGNOLA':
-                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Carmagnola/${invoice.fornitore}_${file[1]}`)
-                            break;    
-                        case 'TICINESE':
-                            fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Ticinese/${invoice.fornitore}_${file[1]}`)
-                            break;    
-                        default:
-                            switch(invoice.fornitore) {
-                                case 'Foodinho, SRL':
-                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Delivery/${invoice.fornitore}_${file[1]}`)
-                                    break;
-                                case 'DELIVEROO ITALY S.r.l.':
-                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Delivery/${invoice.fornitore}_${file[1]}`)
-                                    break;
-                                case 'Just-Eat Italy S.r.l':
-                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/Delivery/${invoice.fornitore}_${file[1]}`)
-                                    break;
-                                default:
-                                    fs.renameSync('./ultimate/' + file[1], `./temp/Locali/${invoice.fornitore}_${file[1]}`)
-                                    break;
-                            }
-                            break;
+                    if (moveByPDV) {
+                        switch(file[0]) {
+                            case 'SAVONA':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Savona/${invoice.fornitore}_${file[1]}`)
+                                break;
+                            case 'EUSTACHI':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Eustachi/${invoice.fornitore}_${file[1]}`)
+                                break;    
+                            case 'MARGHERA':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Marghera/${invoice.fornitore}_${file[1]}`)
+                                break;    
+                            case 'CARMAGNOLA':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Carmagnola/${invoice.fornitore}_${file[1]}`)
+                                break;    
+                            case 'TICINESE':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Ticinese/${invoice.fornitore}_${file[1]}`)
+                                break;    
+                            default:
+                                switch(invoice.fornitore) {
+                                    case 'Foodinho, SRL':
+                                        fs.renameSync(folder + file[1], `${destinationFolder}Delivery/${invoice.fornitore}_${file[1]}`)
+                                        break;
+                                    case 'DELIVEROO ITALY S.r.l.':
+                                        fs.renameSync(folder + file[1], `${destinationFolder}Delivery/${invoice.fornitore}_${file[1]}`)
+                                        break;
+                                    case 'Just-Eat Italy S.r.l':
+                                        fs.renameSync(folder + file[1], `${destinationFolder}Delivery/${invoice.fornitore}_${file[1]}`)
+                                        break;
+                                    default:
+                                        fs.renameSync(folder + file[1], `${destinationFolder}${invoice.fornitore}_${file[1]}`)
+                                        break;
+                                }
+                                break;
                         }        
+                    }
                 } catch (err) {
                     console.log(err)
                 }    
             }
+            //*************************************************** */
+            //TESTS FOR STABLE SUPPLIERS
+            //*************************************************** */
             for (let fornitore of UFFICIO) {
                 if (invoice.fornitore === fornitore) {
                     invoice.puntoVendita = 'UFFICIO'
@@ -363,7 +387,9 @@ const mainTest = async () => {
     const pdf = await getText(data)
     let PDV = await pdv(pdf);
     let csvData = await pushData(data, PDV, xmlPDV);
-    writeCSV(csvData)
+    if(writeToCSV) {
+        writeCSV(csvData)
+    }
 }
 
 //WRITE TO CSV FUNCTION
@@ -373,7 +399,7 @@ const writeCSV = async (data) => {
     let csv;
     try {
         csv = await parse(data, opts);
-        fs.writeFileSync('./Fatture_new.csv', csv, err => { if (err) console.log(err) })
+        fs.writeFileSync(`./${writeFileName}.csv`, csv, err => { if (err) console.log(err) })
         console.log(csv);
         return
     } catch (err) {

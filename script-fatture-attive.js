@@ -3,10 +3,17 @@ const { parse } = require('json2csv');
 const fs = require('fs');
 const re = /FatturaElettronica/;
 
+//*************************************************** */
+//INPUT FOLDER
+//*************************************************** */
+const folder = '../../../P7M output/'
+let fileArray = fs.readdirSync(folder);
 
-let fileArray = fs.readdirSync('../../../P7M output');
-console.log(fileArray)
-let serial = [];
+//*************************************************** */
+//WRITE CSV FILE?
+//*************************************************** */
+const writeToCSV = false
+const writeFileName = 'Fatture_Attive'
 
 let myData = [];
 let individualFattura = {
@@ -22,7 +29,7 @@ let individualFattura = {
 let error;
 
 fileArray.forEach((file) => {
-    const fatturaXML = fs.readFileSync('../../../P7M output/' + file);
+    const fatturaXML = fs.readFileSync(folder + file);
     const json = convert.xml2json(fatturaXML, { compact: true, spaces: 4 });
     let fattura = JSON.parse(json);
     const entries = Object.entries(fattura);
@@ -35,12 +42,6 @@ fileArray.forEach((file) => {
     entries.forEach((array) => {
         if (re.test(array[0])) {
             error = file;
-            // try {
-            //     delete array[1].FatturaElettronicaBody.Allegati;
-            // } catch (e) {
-            //     console.log(e);
-            //     console.log('this is the file', error);
-            // }
             try {
                 array[1].FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Denominazione !== undefined
                     ? fornitore = array[1].FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Denominazione['_text']
@@ -72,7 +73,6 @@ fileArray.forEach((file) => {
             totale: importo
         }
         myData.push(individualFattura);
-        serial.push(file);
     })
 })
 
@@ -81,10 +81,10 @@ const opts = { fields };
 
 try {
     const csv = parse(myData, opts);
-    fs.writeFileSync('./Fatture_attive.csv', csv, err => { if (err) console.log(err) })
+    if (writeToCSV) {
+        fs.writeFileSync(`./${writeFileName}.csv`, csv, err => { if (err) console.log(err) })
+    }
     console.log(csv);
 } catch (err) {
     console.error(err.name);
 }
-
-// console.log(serial)

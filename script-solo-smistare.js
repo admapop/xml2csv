@@ -42,7 +42,7 @@ const destinationFolder = './Locali/'
 //*************************************************** */
 //WRITE CSV FILE?
 //*************************************************** */
-const writeToCSV = true
+const writeToCSV = false
 const writeFileName = 'Bonzano3'
 
 //FUNCTION USED BY getText() TO PROCESS PDF TEXT

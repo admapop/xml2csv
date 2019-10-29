@@ -36,7 +36,7 @@ let fileArray = fs.readdirSync(folder);
 //*************************************************** */
 //MOVE INVOICES TO RELATIVE FOLDERS?
 //*************************************************** */
-const moveByPDV = true
+const moveByPDV = false
 const destinationFolder = './Locali/'
 
 //*************************************************** */

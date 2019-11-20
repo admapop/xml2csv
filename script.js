@@ -5,6 +5,7 @@ let atob = require('atob')
 const re = /FatturaElettronica/;
 const comoRegEx = /ntgen/i;
 const PDFJS = require('pdfjs-dist')
+const { folder, moveByPDV, destinationFolder, writeToCSV, writeFileName } = require('./config')
 
 //*************************************************** */
 //DECLARING ALL OUR VARIABLES
@@ -14,8 +15,8 @@ const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIACOM
 const SAVONA = ['AGRICOLA VARESINA S.R.L.', ]
 const TICINESE = ['AARON Service Srl', 'Metro Italia Cash and Carry S.p.A']
 const UFFICIO = ['NESPRESSO ITALIANA SPA', 'Notarbartolo & Gervasi S.p.A.', 'CARPOFORO SRL', 'EDOARDO SCINETTI', 'DriveNow Italy S.r.l. c/o BMW Group',];
-const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE']]
-const Glovo = [['P44026', 'CARMAGNOLA'], ['P2292', 'SAVONA'], ['P8413', 'MARGHERA'], ['P8280', 'EUSTACHI'], ['P94710', 'TICINESE']]
+const Delivero = [[17183, 'MARGHERA'], [82848, 'EUSTACHI'], [76908, 'CARMAGNOLA'], [77408, 'SAVONA'], [112001, 'TICINESE'], [127360, 'COMO']]
+const Glovo = [['P44026', 'CARMAGNOLA'], ['P2292', 'SAVONA'], ['P8413', 'MARGHERA'], ['P8280', 'EUSTACHI'], ['P94710', 'TICINESE'], ['P114791', 'COMO']]
 const individualFattura = {
     xml: '',
     numeroFattura: '',
@@ -27,23 +28,7 @@ const individualFattura = {
 }
 //**************************************************************************************************************************************************************************** */
 
-//*************************************************** */
-//INPUT FOLDER
-//*************************************************** */
-const folder = './Bonzano/'
 let fileArray = fs.readdirSync(folder);
-
-//*************************************************** */
-//MOVE INVOICES TO RELATIVE FOLDERS?
-//*************************************************** */
-const moveByPDV = true
-const destinationFolder = './Locali/'
-
-//*************************************************** */
-//WRITE CSV FILE?
-//*************************************************** */
-const writeToCSV = true
-const writeFileName = 'Bonzano3'
 
 //FUNCTION USED BY getText() TO PROCESS PDF TEXT
 const getPageText = async (pdf, pageNo) => {
@@ -251,6 +236,9 @@ const pushData = async (invData, pdvData, xmlData) => {
                             case 'TICINESE':
                                 fs.renameSync(folder + file[1], `${destinationFolder}Ticinese/${invoice.fornitore}_${file[1]}`)
                                 break;    
+                            case 'COMO':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Como/${invoice.fornitore}_${file[1]}`)
+                                break;    
                             default:
                                 switch(invoice.fornitore) {
                                     case 'Foodinho, SRL':
@@ -399,7 +387,7 @@ const writeCSV = async (data) => {
     let csv;
     try {
         csv = await parse(data, opts);
-        fs.writeFileSync(`./${writeFileName}.csv`, csv, err => { if (err) console.log(err) })
+        // fs.writeFileSync(`./${writeFileName}.csv`, csv, err => { if (err) console.log(err) })
         console.log(csv);
         return
     } catch (err) {

@@ -12,8 +12,8 @@ let fileArray = fs.readdirSync(folder);
 //*************************************************** */
 //WRITE CSV FILE?
 //*************************************************** */
-const writeToCSV = false
-const writeFileName = 'Fatture_Attive'
+const writeToCSV = true
+const writeFileName = 'Fatture_Attive-10-2019'
 
 let myData = [];
 let individualFattura = {

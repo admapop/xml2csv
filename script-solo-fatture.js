@@ -5,7 +5,6 @@ let atob = require('atob')
 const re = /FatturaElettronica/;
 const comoRegEx = /ntgen/i;
 const PDFJS = require('pdfjs-dist')
-const { folder, moveByPDV, destinationFolder, writeToCSV, writeFileName } = require('./config')
 
 //*************************************************** */
 //DECLARING ALL OUR VARIABLES
@@ -28,7 +27,23 @@ const individualFattura = {
 }
 //**************************************************************************************************************************************************************************** */
 
+//*************************************************** */
+//INPUT FOLDER
+//*************************************************** */
+const folder = '../Fatture 01-11 - 14-11/xml/'
 let fileArray = fs.readdirSync(folder);
+
+//*************************************************** */
+//MOVE INVOICES TO RELATIVE FOLDERS?
+//*************************************************** */
+const moveByPDV = false
+const destinationFolder = './Locali/'
+
+//*************************************************** */
+//WRITE CSV FILE?
+//*************************************************** */
+const writeToCSV = true
+const writeFileName = 'Fatture_14-11-19'
 
 //FUNCTION USED BY getText() TO PROCESS PDF TEXT
 const getPageText = async (pdf, pageNo) => {

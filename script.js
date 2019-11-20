@@ -387,7 +387,7 @@ const writeCSV = async (data) => {
     let csv;
     try {
         csv = await parse(data, opts);
-        // fs.writeFileSync(`./${writeFileName}.csv`, csv, err => { if (err) console.log(err) })
+        fs.writeFileSync(`./${writeFileName}.csv`, csv, err => { if (err) console.log(err) })
         console.log(csv);
         return
     } catch (err) {

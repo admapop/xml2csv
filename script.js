@@ -11,7 +11,7 @@ const { folder, moveByPDV, destinationFolder, writeToCSV, writeFileName } = requ
 //DECLARING ALL OUR VARIABLES
 //*************************************************** */
 
-const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIACOMO MORA', 'COMO', 'BLIGNY'];
+const PDV = ['SAVONA', 'EUSTACHI', 'MARGHERA', 'CARMAGNOLA', 'TICINESE', 'GIACOMO MORA', 'COMO', 'BLIGNY', 'VIA BERGAMO', 'MONTENERO'];
 const SAVONA = ['AGRICOLA VARESINA S.R.L.', ]
 const TICINESE = ['AARON Service Srl', 'Metro Italia Cash and Carry S.p.A']
 const UFFICIO = ['NESPRESSO ITALIANA SPA', 'Notarbartolo & Gervasi S.p.A.', 'CARPOFORO SRL', 'EDOARDO SCINETTI', 'DriveNow Italy S.r.l. c/o BMW Group',];
@@ -87,6 +87,9 @@ const pdv = async (pdf) => {
                 } else if (comoRegEx.test(text)) {
                     check = true;
                     output.push(['COMO', file])
+                } else if (pdv === 'MONTENERO') {
+                    check = true;
+                    output.push(['VIA BERGAMO', file])
                 } else {
                     check = true;
                     output.push([pdv, file]);
@@ -133,6 +136,9 @@ const stringXML = async (fileArray) => {
             } else if (comoRegEx.test(fatturaXML.toString())) {
                 check = true;
                 stringArray.push(['BLIGNY', file]);
+            } else if (_pdv === 'MONTENERO') {
+                check = true;
+                stringArray.push(['VIA BERGAMO', file])
             }
         }
         if (!check) {
@@ -238,6 +244,12 @@ const pushData = async (invData, pdvData, xmlData) => {
                                 break;    
                             case 'COMO':
                                 fs.renameSync(folder + file[1], `${destinationFolder}Como/${invoice.fornitore}_${file[1]}`)
+                                break;    
+                            case 'BLIGNY':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Bligny/${invoice.fornitore}_${file[1]}`)
+                                break;    
+                            case 'VIA BERGAMO':
+                                fs.renameSync(folder + file[1], `${destinationFolder}Bergamo/${invoice.fornitore}_${file[1]}`)
                                 break;    
                             default:
                                 switch(invoice.fornitore) {

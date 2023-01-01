@@ -15,7 +15,7 @@
     "json2csv": "^4.5.2",
     "nodejs-base64": "^1.0.3",
     "pdf2json": "^1.1.8",
-    "pdfjs-dist": "^2.1.266",
+    "pdfjs-dist": "^2.16.105",
     "sax": "^1.2.4",
     "xml-js": "^1.6.11"
   },
